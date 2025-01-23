@@ -1,0 +1,71 @@
+# Пользовательские настройки Xcode (не нужны в репозитории)
+xcuserdata/
+
+*.xcscmblueprint
+
+# Данные о сборке Xcode
+DerivedData/
+build/
+*.xcarchive
+
+# Файлы от Swift Package Manager (SPM)
+.swiftpm/
+Package.resolved
+
+# Файлы от CocoaPods
+Pods/
+Podfile.lock
+
+# Файлы от Carthage
+Carthage/Checkouts
+Carthage/Build
+
+# Логи и временные файлы
+*.xcworkspace/
+*.xcuserdata/
+
+# Отладочная информация
+*.dSYM
+*.ipa
+
+# Файлы от Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+
+# Derived Data
+DerivedData/
+build/
+*.xcarchive
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Checkouts
+Carthage/Build
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Симуляторы, IPA и dSYM
+*.dSYM
+*.ipa
+
+
