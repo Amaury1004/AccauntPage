@@ -8,19 +8,25 @@ class Profil: UIViewController {
     let descriptionProfil = UILabel()
     let icon = UIImageView()
     let icon2 = UIImageView()
+    //let icon2 = ImageViewInsets(insets: UIEdgeInsets(top: 5, left: 4, bottom: 5, right: 4))
     let memeLable = UILabel()
     let memesStack = UIStackView()
-    let switchLabel = UILabel()
+    let lightLabel = UILabel()
     let lightSwitch = UISwitch()
+    
+    //let scrollView = UIScrollView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
         setupInitialTheme()
+
     }
     
     func setupUI() {
+//        scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 100)
         blackMen.image = UIImage(named: "avatar")
         blackMen.contentMode = .scaleAspectFill
         blackMen.clipsToBounds = true
@@ -51,10 +57,12 @@ class Profil: UIViewController {
         icon.layer.cornerRadius = 10
         icon.translatesAutoresizingMaskIntoConstraints = false
         
-        icon2.image = UIImage(named: "icon")
+        icon2.image = UIImage(systemName: "lamp.ceiling.fill")
         icon2.clipsToBounds = true
-        icon2.layer.cornerRadius = 10
+        icon2.layer.cornerRadius = 7
         icon2.translatesAutoresizingMaskIntoConstraints = false
+        icon2.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        
         
         memeLable.text = "Відбірні меми Чоткого"
         memeLable.textColor = .black
@@ -62,9 +70,9 @@ class Profil: UIViewController {
         memeLable.textAlignment = .center
         memeLable.translatesAutoresizingMaskIntoConstraints = false
         
-        switchLabel.text = "Выключить свет"
-        switchLabel.font = UIFont.systemFont(ofSize: 14)
-        switchLabel.translatesAutoresizingMaskIntoConstraints = false
+        lightLabel.text = "Выключить свет"
+        lightLabel.font = UIFont.systemFont(ofSize: 14)
+        lightLabel.translatesAutoresizingMaskIntoConstraints = false
         
         lightSwitch.onTintColor = .gray
         lightSwitch.addTarget(self, action: #selector(switchTheme), for: .valueChanged)
@@ -113,6 +121,7 @@ class Profil: UIViewController {
         memesStack.addArrangedSubview(secondRow)
         
 
+        //view.addSubview(scrollView)
         view.addSubview(nameProfil)
         view.addSubview(blackMen)
         view.addSubview(descriptionProfil)
@@ -120,7 +129,7 @@ class Profil: UIViewController {
         view.addSubview(memeLable)
         view.addSubview(icon2)
         view.addSubview(lightSwitch)
-        view.addSubview(switchLabel)
+        view.addSubview(lightLabel)
         view.addSubview(memesStack)
         
         setupConstraints()
@@ -135,7 +144,10 @@ class Profil: UIViewController {
 
         NSLayoutConstraint.activate([
             
-            
+//            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             blackMen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             blackMen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -161,14 +173,17 @@ class Profil: UIViewController {
             
             icon2.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
             icon2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            icon2.widthAnchor.constraint(equalToConstant: 25),
-            icon2.heightAnchor.constraint(equalToConstant: 25),
+            icon2.widthAnchor.constraint(equalToConstant: 30),
+            icon2.heightAnchor.constraint(equalToConstant: 30),
             
-            switchLabel.rightAnchor.constraint(equalTo: icon2.rightAnchor, constant: 125),
-            switchLabel.centerYAnchor.constraint(equalTo: icon2.centerYAnchor),
+            lightLabel.leadingAnchor.constraint(equalTo: icon2.trailingAnchor, constant: 16),
+            lightLabel.centerYAnchor.constraint(equalTo: icon2.centerYAnchor),
+            lightLabel.heightAnchor.constraint(equalToConstant: 44),
             
-            lightSwitch.rightAnchor.constraint(equalTo: switchLabel.rightAnchor, constant: 60),
-            lightSwitch.centerYAnchor.constraint(equalTo: switchLabel.centerYAnchor),
+            lightSwitch.leadingAnchor.constraint(equalTo: lightLabel.trailingAnchor, constant: 8),
+            lightSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            lightSwitch.centerYAnchor.constraint(equalTo: icon2.centerYAnchor),
+            lightSwitch.heightAnchor.constraint(equalToConstant: 44)
     
         ])
     }
@@ -187,6 +202,6 @@ class Profil: UIViewController {
         memeLable.textColor = darkMode ? .white : .black
         icon.tintColor = darkMode ? .white : .black
         icon2.tintColor = darkMode ? .white : .black
-        switchLabel.textColor = darkMode ? .white : .black
+        lightLabel.textColor = darkMode ? .white : .black
     }
 }
