@@ -16,6 +16,8 @@
 		11848A142D420814001EC806 /* AccauntPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A132D420814001EC806 /* AccauntPageTests.swift */; };
 		11848A1E2D420814001EC806 /* AccauntPageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A1D2D420814001EC806 /* AccauntPageUITests.swift */; };
 		11848A202D420814001EC806 /* AccauntPageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */; };
+		11848A2D2D42085A001EC806 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2C2D42085A001EC806 /* Menu.swift */; };
+		11848A2F2D4208A3001EC806 /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2E2D4208A3001EC806 /* Profil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		11848A192D420814001EC806 /* AccauntPageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccauntPageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11848A1D2D420814001EC806 /* AccauntPageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccauntPageUITests.swift; sourceTree = "<group>"; };
 		11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccauntPageUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		11848A2C2D42085A001EC806 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		11848A2E2D4208A3001EC806 /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				118489FC2D420812001EC806 /* AppDelegate.swift */,
 				118489FE2D420812001EC806 /* SceneDelegate.swift */,
 				11848A002D420812001EC806 /* ViewController.swift */,
+				11848A2C2D42085A001EC806 /* Menu.swift */,
+				11848A2E2D4208A3001EC806 /* Profil.swift */,
 				11848A022D420812001EC806 /* Main.storyboard */,
 				11848A052D420814001EC806 /* Assets.xcassets */,
 				11848A072D420814001EC806 /* LaunchScreen.storyboard */,
@@ -260,6 +266,8 @@
 			files = (
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
 				118489FD2D420812001EC806 /* AppDelegate.swift in Sources */,
+				11848A2D2D42085A001EC806 /* Menu.swift in Sources */,
+				11848A2F2D4208A3001EC806 /* Profil.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
