@@ -90,6 +90,7 @@ class Profil: UIViewController {
                     
             imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
             imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            //как у тебя будут картинки по размеру экрана, если ты им выставляешь подобные ограничения, с чего они сформированы?
                     
             firstRow.addArrangedSubview(imageView)
                 }
@@ -103,6 +104,7 @@ class Profil: UIViewController {
                     
             imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
             imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+            //аналогично
                     
             secondRow.addArrangedSubview(imageView)
                 }
