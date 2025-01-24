@@ -7,7 +7,6 @@ class Profil: UIViewController {
     let nameProfil = UILabel()
     let descriptionProfil = UILabel()
     let icon = UIImageView()
-    let icon2 = UIImageView()
     //let icon2 = ImageViewInsets(insets: UIEdgeInsets(top: 5, left: 4, bottom: 5, right: 4))
     let memeLable = UILabel()
     let memesStack = UIStackView()
@@ -46,22 +45,17 @@ class Profil: UIViewController {
         Я читаю реп, ви слухаєте реп, ви слухаєте реп.
         Я читаю реп, ви слухаєте реп, ви слухаєте реп.
         """
-        descriptionProfil.font = UIFont.systemFont(ofSize: 13)
+        descriptionProfil.font = UIFont.systemFont(ofSize: 15)
         descriptionProfil.numberOfLines = 0
         descriptionProfil.textAlignment = .center
         descriptionProfil.translatesAutoresizingMaskIntoConstraints = false
+    
         
-        icon.image = UIImage(named: "icon")
-        icon.contentMode = .scaleAspectFill
+        icon.image = UIImage(systemName: "lamp.ceiling.fill")
         icon.clipsToBounds = true
-        icon.layer.cornerRadius = 10
+        icon.layer.cornerRadius = 7
         icon.translatesAutoresizingMaskIntoConstraints = false
-        
-        icon2.image = UIImage(systemName: "lamp.ceiling.fill")
-        icon2.clipsToBounds = true
-        icon2.layer.cornerRadius = 7
-        icon2.translatesAutoresizingMaskIntoConstraints = false
-        icon2.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        icon.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         
         
         memeLable.text = "Відбірні меми Чоткого"
@@ -78,56 +72,51 @@ class Profil: UIViewController {
         lightSwitch.addTarget(self, action: #selector(switchTheme), for: .valueChanged)
         lightSwitch.translatesAutoresizingMaskIntoConstraints = false
         
-        memesStack.axis = .vertical
-        memesStack.spacing = 5
-        memesStack.alignment = .center
-        memesStack.distribution = .fillEqually
-        memesStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        let memes = ["meme1", "meme2", "meme3", "meme4"]
+
+        let memes = ["meme1", "meme2", "meme3", "meme4","meme5", "meme4"]
         
         let firstRow = UIStackView()
+        firstRow.axis = .horizontal
+        firstRow.spacing = 1
+        firstRow.distribution = .fillEqually
+
         let secondRow = UIStackView()
-                
-        for i in 0..<2 {
+        secondRow.axis = .horizontal
+        secondRow.spacing = 1
+        secondRow.distribution = .fillEqually
+
+        // Добавляем картинки в первый ряд
+        for i in 0..<3 {
             let imageView = UIImageView(image: UIImage(named: memes[i]))
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 10
-            imageView.layer.masksToBounds = true
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-                    
-            imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-            //как у тебя будут картинки по размеру экрана, если ты им выставляешь подобные ограничения, с чего они сформированы?
-                    
+            imageView.contentMode = .scaleAspectFill // Лучше чем .scaleAspectFit для сетки
+            imageView.clipsToBounds = true // Обрезает лишнее, если нужно
             firstRow.addArrangedSubview(imageView)
-                }
-                
-        for i in 2..<4 {
+        }
+
+        // Добавляем картинки во второй ряд
+        for i in 3..<6 {
             let imageView = UIImageView(image: UIImage(named: memes[i]))
             imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 10
-            imageView.layer.masksToBounds = true
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-                    
-            imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-            //аналогично
-                    
+            imageView.clipsToBounds = true
             secondRow.addArrangedSubview(imageView)
-                }
-                
+        }
+
+       
+        memesStack.axis = .vertical
+        memesStack.spacing = 1
+        memesStack.distribution = .fillEqually
         memesStack.addArrangedSubview(firstRow)
         memesStack.addArrangedSubview(secondRow)
+        memesStack.translatesAutoresizingMaskIntoConstraints = false
         
-
+        
+            
         //view.addSubview(scrollView)
         view.addSubview(nameProfil)
         view.addSubview(blackMen)
         view.addSubview(descriptionProfil)
         view.addSubview(icon)
         view.addSubview(memeLable)
-        view.addSubview(icon2)
         view.addSubview(lightSwitch)
         view.addSubview(lightLabel)
         view.addSubview(memesStack)
@@ -150,39 +139,39 @@ class Profil: UIViewController {
 //            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             blackMen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            blackMen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            blackMen.widthAnchor.constraint(equalToConstant: 80),
-            blackMen.heightAnchor.constraint(equalToConstant: 80),
+            blackMen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 23),
+            blackMen.heightAnchor.constraint(equalToConstant: 100),
+            blackMen.widthAnchor.constraint(equalToConstant: 100),
             
             nameProfil.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameProfil.centerYAnchor.constraint(equalTo: blackMen.bottomAnchor, constant: 30),
+            nameProfil.topAnchor.constraint(equalTo: blackMen.bottomAnchor, constant: 23),
             
-            descriptionProfil.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionProfil.centerYAnchor.constraint(equalTo: nameProfil.bottomAnchor, constant: 50),
             
-            icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            icon.centerYAnchor.constraint(equalTo: descriptionProfil.bottomAnchor, constant: 35),
+            descriptionProfil.topAnchor.constraint(equalTo: nameProfil.bottomAnchor, constant: 26),
+            descriptionProfil.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            descriptionProfil.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15),
+            
+            
+            memeLable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            memeLable.centerYAnchor.constraint(equalTo: descriptionProfil.bottomAnchor, constant: 30),
+            
+            
+            memesStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            memesStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            memesStack.topAnchor.constraint(equalTo: memeLable.bottomAnchor, constant:  30),
+            
+            icon.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            icon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             icon.widthAnchor.constraint(equalToConstant: 30),
             icon.heightAnchor.constraint(equalToConstant: 30),
             
-            memeLable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            memeLable.centerYAnchor.constraint(equalTo: icon.bottomAnchor, constant: 30),
-            
-            memesStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            memesStack.centerYAnchor.constraint(equalTo: memeLable.bottomAnchor, constant:  75),
-            
-            icon2.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
-            icon2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            icon2.widthAnchor.constraint(equalToConstant: 30),
-            icon2.heightAnchor.constraint(equalToConstant: 30),
-            
-            lightLabel.leadingAnchor.constraint(equalTo: icon2.trailingAnchor, constant: 16),
-            lightLabel.centerYAnchor.constraint(equalTo: icon2.centerYAnchor),
+            lightLabel.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 16),
+            lightLabel.centerYAnchor.constraint(equalTo: icon.centerYAnchor),
             lightLabel.heightAnchor.constraint(equalToConstant: 44),
             
             lightSwitch.leadingAnchor.constraint(equalTo: lightLabel.trailingAnchor, constant: 8),
             lightSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            lightSwitch.centerYAnchor.constraint(equalTo: icon2.centerYAnchor),
+            lightSwitch.centerYAnchor.constraint(equalTo: icon.centerYAnchor),
             lightSwitch.heightAnchor.constraint(equalToConstant: 44)
     
         ])
@@ -201,7 +190,7 @@ class Profil: UIViewController {
         descriptionProfil.textColor = darkMode ? .white : .black
         memeLable.textColor = darkMode ? .white : .black
         icon.tintColor = darkMode ? .white : .black
-        icon2.tintColor = darkMode ? .white : .black
         lightLabel.textColor = darkMode ? .white : .black
     }
 }
+

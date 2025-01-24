@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		117896D72D44491A00B878F2 /* switchLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117896D62D44491A00B878F2 /* switchLight.swift */; };
 		118489FD2D420812001EC806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FC2D420812001EC806 /* AppDelegate.swift */; };
 		118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FE2D420812001EC806 /* SceneDelegate.swift */; };
 		11848A012D420812001EC806 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A002D420812001EC806 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		117896D62D44491A00B878F2 /* switchLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = switchLight.swift; sourceTree = "<group>"; };
 		118489F92D420812001EC806 /* AccauntPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccauntPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118489FC2D420812001EC806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118489FE2D420812001EC806 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				11848A002D420812001EC806 /* ViewController.swift */,
 				11848A2C2D42085A001EC806 /* Menu.swift */,
 				11848A2E2D4208A3001EC806 /* Profil.swift */,
+				117896D62D44491A00B878F2 /* switchLight.swift */,
 				11848A022D420812001EC806 /* Main.storyboard */,
 				11848A052D420814001EC806 /* Assets.xcassets */,
 				11848A072D420814001EC806 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 			files = (
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
 				118489FD2D420812001EC806 /* AppDelegate.swift in Sources */,
+				117896D72D44491A00B878F2 /* switchLight.swift in Sources */,
 				11848A2D2D42085A001EC806 /* Menu.swift in Sources */,
 				11848A2F2D4208A3001EC806 /* Profil.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
