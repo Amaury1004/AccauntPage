@@ -1,18 +1,21 @@
 //
-//  switchLight.swift
+//  SwitchLightView.swift
 //  AccauntPage
 //
-//  Created by MakOSim on 25.01.2025.
+//  Created by Dmitry on 26.01.25.
 //
 
 import Foundation
 import UIKit
 
-class SwitchLight: UIView {
+class SwitchLightView: UIView {
     
     let switchLabel = UILabel()
     
     let table = UIView()
+    //Иконка использует все так же обычный UIImageView.
+    //Я просил сделать кастомный вариант, где можно выставлять внутренние отступы
+    //У тебя сейчас иконка вплотную с бекграундом, чекай Фигму
     let icon  = UIImageView()
     
     override init(frame: CGRect) {
@@ -31,6 +34,9 @@ class SwitchLight: UIView {
         icon.clipsToBounds = true
         icon.layer.cornerRadius = 7
         icon.translatesAutoresizingMaskIntoConstraints = false
+        //Тут нужно выставить так. Мы говорим что цвет иконки должен быть белый.
+        icon.tintColor = .white
+        //Ну а тут уже про бекграунд
         icon.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         
         
@@ -49,8 +55,6 @@ class SwitchLight: UIView {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            
-            
             switchLabel.centerYAnchor.constraint(equalTo: table.centerYAnchor),
             switchLabel.leadingAnchor.constraint(equalTo: table.leadingAnchor, constant: 62),
             
@@ -60,8 +64,6 @@ class SwitchLight: UIView {
             icon.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
-
-    
 }
 
         

@@ -51,7 +51,7 @@ class Main: UIView {
         buttonProfil.translatesAutoresizingMaskIntoConstraints = false
         
         buttonLenta.addTarget(self, action: #selector(lenta), for: .touchUpInside)
-        buttonProfil.addTarget(self, action: #selector(profil), for: .touchUpInside)
+        buttonProfil.addTarget(self, action: #selector(profile), for: .touchUpInside)
 
         addSubview(buttonLenta)
         addSubview(buttonProfil)
@@ -88,8 +88,8 @@ class Main: UIView {
         print("Максікі пока не встигли придумати функціонал")
     }
     
-    @objc private func profil() {
-        let secondVC = Profil()
+    @objc private func profile() {
+        let secondVC = ProfileViewController()
         secondVC.modalPresentationStyle = .fullScreen
         if let viewController = findViewController() {
             viewController.present(secondVC, animated: true)
