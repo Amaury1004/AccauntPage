@@ -85,14 +85,18 @@ class Main: UIView {
     }
 
     @objc private func lenta() {
-        print("Максікі пока не встигли придумати функціонал")
+        let newView = NewsViewController()
+        newView.modalPresentationStyle = .fullScreen
+        if let viewController = findViewController() {
+            viewController.present(newView, animated: true)
+        }
     }
     
     @objc private func profile() {
-        let secondVC = ProfileViewController()
-        secondVC.modalPresentationStyle = .fullScreen
+        let profile = ProfileViewController()
+        profile.modalPresentationStyle = .fullScreen
         if let viewController = findViewController() {
-            viewController.present(secondVC, animated: true)
+            viewController.present(profile, animated: true)
         }
     }
 }
