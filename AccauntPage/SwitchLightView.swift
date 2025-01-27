@@ -30,7 +30,7 @@ class SwitchLightView: UIView {
         switchLabel.translatesAutoresizingMaskIntoConstraints = false
         switchLabel.textColor = .black
         
-        icon.image = UIImage(systemName: "lamp.ceiling.fill")
+        icon.image = UIImage(systemName: "lightbulb.fill") //нот ворк lamp.ceiling.fill
         icon.clipsToBounds = true
         icon.layer.cornerRadius = 7
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +38,7 @@ class SwitchLightView: UIView {
         icon.tintColor = .white
         //Ну а тут уже про бекграунд
         icon.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        icon.layoutMargins = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
         
         
         self.addSubview(table)

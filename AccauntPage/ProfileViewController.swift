@@ -171,6 +171,8 @@ class ProfileViewController: UIViewController {
         descriptionProfil.textColor = darkMode ? .white : .black
         memeLable.textColor = darkMode ? .white : .black
         swithLable.switchLabel.textColor = darkMode ? .white : .black
+        swithLable.icon.tintColor = darkMode ?   .black : .white
+        
     }
 }
 
