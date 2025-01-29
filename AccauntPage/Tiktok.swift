@@ -10,12 +10,12 @@ import UIKit
 
 class Tikitok: UIViewController, UIScrollViewDelegate {
     
-    let scrollGorizontal = UIScrollView()
+    let scrollHorizontally = UIScrollView()
     let scrolVertikal = UIScrollView()
     let content = UIView()
     
-    let leftScrin = UIView()
-    let rightScrin = UIView()
+    let leftScreen = UIView()
+    let rightScreen = UIView()
     
     let tikitokViews: [UIView] = (0..<7).map { _ in UIView() }
     
@@ -32,30 +32,30 @@ class Tikitok: UIViewController, UIScrollViewDelegate {
         setupUI()
         setupTikitokInterface()
         
-        scrollGorizontal.contentOffset.x = view.frame.width
+        scrollHorizontally.contentOffset.x = view.frame.width
     }
     
     func setupUI() {
-        scrollGorizontal.frame = view.bounds
-        scrollGorizontal.contentSize = CGSize(width: view.frame.width * 3, height: view.frame.height)
-        scrollGorizontal.isPagingEnabled = true
-        scrollGorizontal.showsHorizontalScrollIndicator = false
-        scrollGorizontal.delegate = self
-        view.addSubview(scrollGorizontal)
+        scrollHorizontally.frame = view.bounds
+        scrollHorizontally.contentSize = CGSize(width: view.frame.width * 3, height: view.frame.height)
+        scrollHorizontally.isPagingEnabled = true
+        scrollHorizontally.showsHorizontalScrollIndicator = false
+        scrollHorizontally.delegate = self
+        view.addSubview(scrollHorizontally)
         
-        leftScrin.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        leftScrin.backgroundColor = .red
-        scrollGorizontal.addSubview(leftScrin)
+        leftScreen.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        leftScreen.backgroundColor = .red
+        scrollHorizontally.addSubview(leftScreen)
         
-        rightScrin.frame = CGRect(x: view.frame.width * 2, y: 0, width: view.frame.width, height: view.frame.height)
-        rightScrin.backgroundColor = .blue
-        scrollGorizontal.addSubview(rightScrin)
+        rightScreen.frame = CGRect(x: view.frame.width * 2, y: 0, width: view.frame.width, height: view.frame.height)
+        rightScreen.backgroundColor = .blue
+        scrollHorizontally.addSubview(rightScreen)
 
         scrolVertikal.frame = CGRect(x: view.frame.width, y: 0, width: view.frame.width, height: view.frame.height)
         scrolVertikal.contentSize = CGSize(width: view.frame.width, height: view.frame.height * 7)
         scrolVertikal.isPagingEnabled = true
         scrolVertikal.showsVerticalScrollIndicator = false
-        scrollGorizontal.addSubview(scrolVertikal)
+        scrollHorizontally.addSubview(scrolVertikal)
         
         content.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height * 7)
         scrolVertikal.addSubview(content)
@@ -99,7 +99,6 @@ class Tikitok: UIViewController, UIScrollViewDelegate {
             commentButton.centerXAnchor.constraint(equalTo: rightButton.centerXAnchor),
             commentButton.widthAnchor.constraint(equalToConstant: 55),
             commentButton.heightAnchor.constraint(equalToConstant: 55),
-
 
             shareButton.topAnchor.constraint(equalTo: commentButton.bottomAnchor, constant: 20),
             shareButton.centerXAnchor.constraint(equalTo: rightButton.centerXAnchor),

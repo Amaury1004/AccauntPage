@@ -20,7 +20,7 @@
 		11848A202D420814001EC806 /* AccauntPageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */; };
 		11848A2D2D42085A001EC806 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2C2D42085A001EC806 /* Menu.swift */; };
 		11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2E2D4208A3001EC806 /* ProfileViewController.swift */; };
-		11FD0B332D4A4A2B002CBD30 /* tikitok?.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD0B322D4A4A2B002CBD30 /* tikitok?.swift */; };
+		11FD0B332D4A4A2B002CBD30 /* Tiktok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD0B322D4A4A2B002CBD30 /* Tiktok.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 		11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccauntPageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		11848A2C2D42085A001EC806 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		11848A2E2D4208A3001EC806 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		11FD0B322D4A4A2B002CBD30 /* tikitok?.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "tikitok?.swift"; sourceTree = "<group>"; };
+		11FD0B322D4A4A2B002CBD30 /* Tiktok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiktok.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 				11848A002D420812001EC806 /* ViewController.swift */,
 				11848A2C2D42085A001EC806 /* Menu.swift */,
 				11848A2E2D4208A3001EC806 /* ProfileViewController.swift */,
-				11FD0B322D4A4A2B002CBD30 /* tikitok?.swift */,
+				11FD0B322D4A4A2B002CBD30 /* Tiktok.swift */,
 				11848A022D420812001EC806 /* Main.storyboard */,
 				11848A052D420814001EC806 /* Assets.xcassets */,
 				11848A072D420814001EC806 /* LaunchScreen.storyboard */,
@@ -280,7 +280,7 @@
 				11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */,
 				0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
-				11FD0B332D4A4A2B002CBD30 /* tikitok?.swift in Sources */,
+				11FD0B332D4A4A2B002CBD30 /* Tiktok.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

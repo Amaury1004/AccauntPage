@@ -41,7 +41,6 @@ class NewsViewController: UIViewController {
         view4.frame = CGRect(x: view3.frame.maxX, y: 0, width: view.frame.width, height: view.frame.height)
         
         contentView.frame = CGRect(x: 0, y: 0, width: view.frame.width * 4, height: view.frame.height)
-        //Забыл что если я не рабтаю с констрейтами то надо ручками добавлть контентВью и установляти ей размеры
         scrollView.contentSize = contentView.frame.size
         
         view1.backgroundColor = .blue
