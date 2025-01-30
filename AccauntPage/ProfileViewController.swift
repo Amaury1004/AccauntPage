@@ -1,6 +1,12 @@
 import Foundation
 import UIKit
 
+struct ProfileModel {
+    let title: String
+    let description: String
+    let images: [String]
+}
+
 class ProfileViewController: UIViewController {
     
     var blackMen = UIImageView()
@@ -16,11 +22,17 @@ class ProfileViewController: UIViewController {
     //Для корректной работы скролл вью, требуется контент вью. Внутренний контейнер, который будет работать со скролл вью
     let contentView = UIView()
     
+    var viewModel: ProfileModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setupUI()
+    }
+    
+    func setupViewModel(_ model: ProfileModel) {
+        self.viewModel = model
     }
     
     func setupUI() {
@@ -98,7 +110,8 @@ class ProfileViewController: UIViewController {
         memesStack.translatesAutoresizingMaskIntoConstraints = false
         
         swithLable.translatesAutoresizingMaskIntoConstraints = false
-        lightSwitch.addTarget(self, action: #selector(switchTheme(_:)), for: .valueChanged)
+        swithLable.delegate = self
+        //lightSwitch.addTarget(self, action: #selector(switchTheme(_:)), for: .valueChanged)
         lightSwitch.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(scrollView)
@@ -152,27 +165,25 @@ class ProfileViewController: UIViewController {
             
             swithLable.topAnchor.constraint(equalTo: memesStack.bottomAnchor, constant: 42),
             swithLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            //swithLable.trailingAnchor.constraint(equalTo: lightSwitch.leadingAnchor, constant: -12),
+            swithLable.widthAnchor.constraint(equalToConstant: 385)
             
-            lightSwitch.centerYAnchor.constraint(equalTo: swithLable.centerYAnchor),
-            lightSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            contentView.bottomAnchor.constraint(equalTo: swithLable.bottomAnchor, constant: 20)
+//            lightSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+//            lightSwitch.topAnchor.constraint(equalTo: memesStack.bottomAnchor, constant: 42)
         ])
     }
-    
-    @objc func switchTheme(_ sender: UISwitch) {
-        let darkMode = sender.isOn
-        updateUI(for: darkMode)
-    }
-    
-    func updateUI(for darkMode: Bool) {
-        view.backgroundColor = darkMode ? .black : .white
-        nameProfil.textColor = darkMode ? .white : .black
-        descriptionProfil.textColor = darkMode ? .white : .black
-        memeLable.textColor = darkMode ? .white : .black
-        swithLable.switchLabel.textColor = darkMode ? .white : .black
-        swithLable.icon.tintColor = darkMode ?   .black : .white
-        
+}
+
+extension ProfileViewController: SwitchLightDelegate {
+    func switchAction(sender: SwitchLightView) {
+//        let darkMode = sender.isOn
+//        updateUI(for: darkMode)
+//        view.backgroundColor = darkMode ? .black : .white
+//        nameProfil.textColor = darkMode ? .white : .black
+//        descriptionProfil.textColor = darkMode ? .white : .black
+//        memeLable.textColor = darkMode ? .white : .black
+//        swithLable.switchLabel.textColor = darkMode ? .white : .black
+//        swithLable.icon.tintColor = darkMode ?   .black : .white
     }
 }
 

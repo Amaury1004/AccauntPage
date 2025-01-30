@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 
+protocol SwitchLightDelegate: AnyObject {
+    func switchAction(sender: SwitchLightView)
+}
+
 class SwitchLightView: UIView {
     
     let switchLabel = UILabel()
     
-    let table = UIView()
+    weak var delegate: SwitchLightDelegate?
+    
+    let content = UIView()
     //Иконка использует все так же обычный UIImageView.
     //Я просил сделать кастомный вариант, где можно выставлять внутренние отступы
     //У тебя сейчас иконка вплотную с бекграундом, чекай Фигму
@@ -23,7 +29,7 @@ class SwitchLightView: UIView {
         
         
         
-        table.frame = CGRect(x: 0, y: 0, width: 429, height: 44)
+        content.frame = CGRect(x: 0, y: 0, width: 429, height: 44)
         
         
         switchLabel.text = "Вимикач світла"
@@ -41,9 +47,9 @@ class SwitchLightView: UIView {
         icon.layoutMargins = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
         
         
-        self.addSubview(table)
-        table.addSubview(switchLabel)
-        table.addSubview(icon)
+        self.addSubview(content)
+        content.addSubview(switchLabel)
+        content.addSubview(icon)
         
         setupConstraints()
         
@@ -56,14 +62,18 @@ class SwitchLightView: UIView {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            switchLabel.centerYAnchor.constraint(equalTo: table.centerYAnchor),
-            switchLabel.leadingAnchor.constraint(equalTo: table.leadingAnchor, constant: 62),
+            switchLabel.centerYAnchor.constraint(equalTo: content.centerYAnchor),
+            switchLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 62),
             
-            icon.centerYAnchor.constraint(equalTo: table.centerYAnchor),
-            icon.leadingAnchor.constraint(equalTo: table.leadingAnchor, constant: 16),
+            icon.centerYAnchor.constraint(equalTo: content.centerYAnchor),
+            icon.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 16),
             icon.widthAnchor.constraint(equalToConstant: 30),
             icon.heightAnchor.constraint(equalToConstant: 30),
         ])
+    }
+    
+    func actionForSwitch(sender: UISwitch) {
+        delegate?.switchAction(sender: self)
     }
 }
 

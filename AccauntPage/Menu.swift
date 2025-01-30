@@ -14,6 +14,13 @@ class Main: UIView {
     let buttonLenta = UIButton(type: .system)
     let buttonProfil = UIButton(type: .system)
     let buttonTikitok = UIButton(type: .system)
+    
+    //let scrollView: UIScrollView
+    //titleLabel: UILabel
+    //descriptionLabel: UILabel
+    //subtitleLabel: UILabel
+    
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,12 +108,16 @@ class Main: UIView {
     }
     
     @objc func tikitok() {
-        let newView = Tikitok()
-        newView.modalPresentationStyle = .fullScreen
+//        let newView = Tikitok()
+//        newView.modalPresentationStyle = .fullScreen
+//        if let viewController = findViewController() {
+//            viewController.present(newView, animated: true)
+//        }
+        let productViewController = ProductListController()
+        productViewController.modalPresentationStyle = .fullScreen
         if let viewController = findViewController() {
-            viewController.present(newView, animated: true)
+            viewController.present(productViewController, animated: true)
         }
-        
     }
     
     @objc private func profile() {
