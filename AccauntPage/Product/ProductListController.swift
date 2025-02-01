@@ -40,17 +40,17 @@ extension ProductListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let controller = UIAlertController.init(title: "Ого!", message: "Это же ячейка под номером \(indexPath.row)", preferredStyle: .actionSheet)
-//        let ahuet = UIAlertAction(title: "Ахуеть", style: .default) { action in
-//            print("Тихо ахуеваю")
-//        }
-//        let cancel = UIAlertAction(title: "Ну нафиг", style: .cancel) { action in
-//            controller.dismiss(animated: true)
-//        }
-//        controller.addAction(ahuet)
-//        controller.addAction(cancel)
-//        present(controller, animated: true)
-        guard var cell = tableView.cellForRow(at: indexPath) else { return }
+        let controller = UIAlertController.init(title: "Ого!", message: "Это же ячейка под номером \(indexPath.row)", preferredStyle: .actionSheet)
+        let ahuet = UIAlertAction(title: "Ахуеть", style: .default) { action in
+            print("Тихо ахуеваю")
+        }
+        let cancel = UIAlertAction(title: "Ну нафиг", style: .cancel) { action in
+            controller.dismiss(animated: true)
+        }
+        controller.addAction(ahuet)
+        controller.addAction(cancel)
+        present(controller, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
         cell.accessoryType = cell.accessoryType == .checkmark ? .none : .checkmark
     }
     
