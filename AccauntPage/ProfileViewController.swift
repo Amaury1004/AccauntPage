@@ -5,6 +5,7 @@ struct ProfileModel {
     let title: String
     let description: String
     let images: [String]
+    let imageDescription: String
 }
 
 class ProfileViewController: UIViewController {
@@ -15,6 +16,7 @@ class ProfileViewController: UIViewController {
     let memeLable = UILabel()
     let memesStack = UIStackView()
     let switchView = SwitchLightView()
+    let backButton = BackButton()
     
     
     //Добавил скролл вью
@@ -27,8 +29,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        setupViewModel(ProfileModel(
+            title: "Чіткий поц",
+            description: "Я читаю реп, ви слухаєте реп, ви слухаєте реп.\n",
+            images: ["meme1", "meme2", "meme3", "meme4", "meme5", "meme4"],
+            imageDescription: "Відбірні меми Чоткого "
+        ))
         setupUI()
+        
     }
     
     func setupViewModel(_ model: ProfileModel) {
@@ -36,13 +44,13 @@ class ProfileViewController: UIViewController {
     }
     
     func setupUI() {
-        //Ебучее свойство
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        //Этот блок дря красоты и приятных ощущений
         //Приятные ощущения в том, что можно подскролить контент,
         //даже когда он полностью помещается на экране. Это частый паттерн, так как статичный UI на экране, это не всегда хорошо.
         scrollView.alwaysBounceVertical = true
+        
         //Скрываем скролл индикаторы(полоски по бокам) ибо они тут не нужны
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
@@ -54,29 +62,29 @@ class ProfileViewController: UIViewController {
         blackMen.layer.cornerRadius = 10
         blackMen.translatesAutoresizingMaskIntoConstraints = false
         
-        nameProfil.text = "Чоткий Паца"
+        nameProfil.text = viewModel?.title
         nameProfil.textColor = .black
         nameProfil.font = UIFont.boldSystemFont(ofSize: 24)
         nameProfil.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionProfil.text = """
-        Я читаю реп, ви слухаєте реп, ви слухаєте реп.
-        Я читаю реп, ви слухаєте реп, ви слухаєте реп.
-        Я читаю реп, ви слухаєте реп, ви слухаєте реп.
-        Я читаю реп, ви слухаєте реп, ви слухаєте реп.
-        """
+        var text = ""
+        for _ in 0..<5 {
+            text += viewModel!.description
+        }
+        descriptionProfil.text = text
+        
         descriptionProfil.font = UIFont.systemFont(ofSize: 15)
         descriptionProfil.numberOfLines = 0
         descriptionProfil.textAlignment = .center
         descriptionProfil.translatesAutoresizingMaskIntoConstraints = false
         
-        memeLable.text = "Відбірні меми Чоткого"
+        memeLable.text = viewModel?.imageDescription
         memeLable.textColor = .black
         memeLable.font = UIFont.boldSystemFont(ofSize: 20)
         memeLable.textAlignment = .center
         memeLable.translatesAutoresizingMaskIntoConstraints = false
         
-        let memes = ["meme1", "meme2", "meme3", "meme4","meme5", "meme4"]
+        let meme = viewModel!.images
         
         let firstRow = UIStackView()
         firstRow.axis = .horizontal
@@ -89,14 +97,14 @@ class ProfileViewController: UIViewController {
         secondRow.distribution = .fillEqually
         
         for i in 0..<3 {
-            let imageView = UIImageView(image: UIImage(named: memes[i]))
+            let imageView = UIImageView(image: UIImage(named: meme[i]))
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             firstRow.addArrangedSubview(imageView)
         }
         
         for i in 3..<6 {
-            let imageView = UIImageView(image: UIImage(named: memes[i]))
+            let imageView = UIImageView(image: UIImage(named: meme[i]))
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             secondRow.addArrangedSubview(imageView)
@@ -111,7 +119,10 @@ class ProfileViewController: UIViewController {
         
         switchView.translatesAutoresizingMaskIntoConstraints = false
         switchView.delegate = self
-        //lightSwitch.addTarget(self, action: #selector(switchTheme(_:)), for: .valueChanged)
+        
+        backButton.delegate = self
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+    
     
         
         view.addSubview(scrollView)
@@ -123,6 +134,7 @@ class ProfileViewController: UIViewController {
         contentView.addSubview(memeLable)
         contentView.addSubview(memesStack)
         contentView.addSubview(switchView)
+        contentView.addSubview(backButton)
         
         
         setupConstraints()
@@ -166,7 +178,12 @@ class ProfileViewController: UIViewController {
             switchView.topAnchor.constraint(equalTo: memesStack.bottomAnchor, constant: 42),
             switchView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             switchView.widthAnchor.constraint(equalToConstant: 400),
-            switchView.heightAnchor.constraint(equalToConstant: 55)
+            switchView.heightAnchor.constraint(equalToConstant: 55),
+            
+            backButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 60)
             //swithLable.trailingAnchor.constraint(equalTo: lightSwitch.leadingAnchor, constant: -12),
             
 //            lightSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
@@ -184,6 +201,12 @@ extension ProfileViewController: SwitchLightDelegate {
         memeLable.textColor = darkMode ? .white : .black
         switchView.switchLabel.textColor = darkMode ? .white : .black
         switchView.iconImageView.tintColor = darkMode ? .black : .white
+    }
+}
+
+extension ProfileViewController: BackButtonDelegate {
+    func backToMenu(){
+        dismiss(animated: true)
     }
 }
 

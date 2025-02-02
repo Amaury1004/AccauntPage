@@ -21,6 +21,8 @@ class NewsViewController: UIViewController {
     let view3 = UIView()
     let view4 = UIView()
     let label = UILabel()
+    
+    let backButton = BackButton()
 
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -35,6 +37,8 @@ class NewsViewController: UIViewController {
     }
     
     func setupUI() {
+        backButton.delegate = self
+        
         view1.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         view2.frame = CGRect(x: view1.frame.maxX, y: 0, width: view.frame.width, height: view.frame.height)
         view3.frame = CGRect(x: view2.frame.maxX, y: 0, width: view.frame.width, height: view.frame.height)
@@ -61,6 +65,8 @@ class NewsViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isPagingEnabled = true
+        
+        
 
         
         view.addSubview(scrollView)
@@ -70,9 +76,17 @@ class NewsViewController: UIViewController {
         contentView.addSubview(view2)
         contentView.addSubview(view3)
         contentView.addSubview(view4)
+        contentView.addSubview(backButton)
         view4.addSubview(label)
+        
         
                     
     }
 
+}
+
+extension NewsViewController: BackButtonDelegate {
+    func backToMenu() {
+        dismiss(animated: true)
+    }
 }
