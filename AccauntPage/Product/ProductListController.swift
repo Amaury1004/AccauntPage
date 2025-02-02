@@ -69,5 +69,3 @@ extension ProductListController: UITableViewDataSource {
         return cell
     }
 }
-
-

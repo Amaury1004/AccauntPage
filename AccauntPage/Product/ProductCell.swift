@@ -11,7 +11,6 @@ class ProductCell: UITableViewCell {
     let titleLabel = UILabel(frame: CGRect(x: 32, y: 12, width: 300, height: 44))
     var model: ProductModel?
     
-    
     func setup() {
         setupUI()
         setupConstraints()
@@ -22,7 +21,6 @@ class ProductCell: UITableViewCell {
     }
     
     func setupUI() {
-        
         iconView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         guard let model = self.model else { return }
@@ -45,4 +43,3 @@ class ProductCell: UITableViewCell {
     }
 
 }
-
