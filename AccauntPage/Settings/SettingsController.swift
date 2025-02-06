@@ -99,12 +99,6 @@ extension SettingsController: UITableViewDataSource {
                 
                 cell.accessoryType = .disclosureIndicator
             }
-            else if indexPath.row == 1 || indexPath.row == 2 {
-                let accessoryLabel = UILabel()
-                accessoryLabel.text = "On"
-                accessoryLabel.textColor = .gray
-                accessoryLabel.font = UIFont.systemFont(ofSize: 14)
-                cell.accessoryType = .disclosureIndicator}
             else {
                 cell.accessoryType = .disclosureIndicator
         }
