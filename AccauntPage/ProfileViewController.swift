@@ -37,6 +37,10 @@ class ProfileViewController: UIViewController {
         ))
         setupUI()
         
+        self.navigationItem.title = "Хуй Иваныч"
+//        let closeButton = UIBarButtonItem(image: <#T##UIImage?#>, style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
+//        self.navigationItem.leftBarButtonItem = closeButton
+        
     }
     
     func setupViewModel(_ model: ProfileModel) {
@@ -120,8 +124,8 @@ class ProfileViewController: UIViewController {
         switchView.translatesAutoresizingMaskIntoConstraints = false
         switchView.delegate = self
         
-        backButton.delegate = self
         backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.delegate = self
     
     
         
@@ -190,6 +194,11 @@ class ProfileViewController: UIViewController {
 //            lightSwitch.topAnchor.constraint(equalTo: memesStack.bottomAnchor, constant: 42)
         ])
     }
+    
+    @objc func pushToSettings() {
+        let settings = SettingsController()
+        self.navigationController?.pushViewController(settings, animated: true)
+    }
 }
 
 extension ProfileViewController: SwitchLightDelegate {
@@ -205,8 +214,9 @@ extension ProfileViewController: SwitchLightDelegate {
 }
 
 extension ProfileViewController: BackButtonDelegate {
-    func backToMenu(){
-        dismiss(animated: true)
+    func backToMenu() {
+        pushToSettings()
+        //dismiss(animated: true)
     }
 }
 

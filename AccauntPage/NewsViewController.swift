@@ -38,6 +38,7 @@ class NewsViewController: UIViewController {
     
     func setupUI() {
         backButton.delegate = self
+        backButton.translatesAutoresizingMaskIntoConstraints = false
         
         view1.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         view2.frame = CGRect(x: view1.frame.maxX, y: 0, width: view.frame.width, height: view.frame.height)
@@ -70,16 +71,22 @@ class NewsViewController: UIViewController {
 
         
         view.addSubview(scrollView)
+        view.addSubview(backButton)
         scrollView.addSubview(contentView)
         
         contentView.addSubview(view1)
         contentView.addSubview(view2)
         contentView.addSubview(view3)
         contentView.addSubview(view4)
-        contentView.addSubview(backButton)
+        
         view4.addSubview(label)
         
-        
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: view.topAnchor),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
                     
     }
 

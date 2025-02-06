@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsController: UIViewController {
     
-    let tableView:UITableView = .init()
+    let tableView: UITableView = .init(frame: .zero, style: .plain)
     let menu = Source.makeMenu()
     
     override func viewDidLoad() {
@@ -27,24 +27,20 @@ class SettingsController: UIViewController {
         view.addSubview(tableView)
         
         setupConstraints()
+        
+        self.navigationItem.title = "Ну не расстраивайся"
     }
     
     func setupTable() {
-        tableView.separatorStyle = .singleLine
-        tableView.separatorColor = .gray
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 64)
-
-        
+        tableView.separatorStyle = .none
     }
-    
-    
-    
 }
-    
+
 
 extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Egor fashist")
     }
     
 }
@@ -53,12 +49,11 @@ extension SettingsController: UITableViewDelegate {
 extension SettingsController {
     func setupConstraints() {
         NSLayoutConstraint.activate([
-        
+            
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        
         ])
     }
 }
@@ -66,11 +61,11 @@ extension SettingsController {
 extension SettingsController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        Source.makeGroup().count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let groupedMenu = Source.makeGrup()
+        let groupedMenu = Source.makeGroup()
         return groupedMenu[section].count
         
     }
@@ -79,55 +74,45 @@ extension SettingsController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell else {
             fatalError("Cell not found")
         }
-
-        let groupedMenu = Source.makeGrup()
+        
+        let groupedMenu = Source.makeGroup()
         let menuItem = groupedMenu[indexPath.section][indexPath.row]
-
+        
         cell.configure(menu: menuItem)
-
-            if indexPath.section == 0  {
-                
-                if indexPath.row == 0{
-                    let switchControl = UISwitch()
-                    
-                    switchControl.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-                    cell.accessoryView = switchControl
-                }
-                else if indexPath.row == 1 || indexPath.row == 2 {
-                    
-                }
-                
-                cell.accessoryType = .disclosureIndicator
-            }
-            else {
-                cell.accessoryType = .disclosureIndicator
+        cell.delegate = self
+        
+        if menuItem.type != .toggle {
+            cell.accessoryType = .disclosureIndicator
         }
-
+        
         return cell
     }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let separatorView = UIView()
-            separatorView.backgroundColor = .white
-            
-            let height: CGFloat = 10.0
-            separatorView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: height)
-            
-            return separatorView
-        }
-        
-       
-        
-    @objc func switchChanged() {
-        
-    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let separatorView = UIView()
+        separatorView.backgroundColor = .white
+        
+        let height: CGFloat = 10.0
+        separatorView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: height)
+        
+        return separatorView
+    }
+}
+
+extension SettingsController: SettingsCellDelegate {
+    func didSwitchChangedAction(sender: SettingsCell, isOn: Bool) {
+        if isOn {
+            print("Опять работать")
+        } else {
+            print("Зак зак")
+        }
+    }
 }
 
 
-    
-    
-    
+
+
+
 
 
 

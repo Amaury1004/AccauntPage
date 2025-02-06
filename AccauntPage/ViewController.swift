@@ -89,26 +89,23 @@ class ViewController: UIViewController {
 
     @objc private func lenta() {
         let newView = NewsViewController()
-        newView.modalPresentationStyle = .fullScreen
         self.present(newView, animated: true, completion: nil)
     }
 
     @objc func tikitok() {
         let productViewController = ProductListController()
-        productViewController.modalPresentationStyle = .fullScreen
         self.present(productViewController, animated: true, completion: nil)
     }
 
     @objc private func settings() {
         let settings = SettingsController()
-        settings.modalPresentationStyle = .fullScreen
         self.present(settings, animated: true, completion: nil)
     }
 
     @objc private func profile() {
         let profile = ProfileViewController()
-        profile.modalPresentationStyle = .fullScreen
-        self.present(profile, animated: true, completion: nil)
+        let nc = UINavigationController(rootViewController: profile)
+        self.present(nc, animated: true, completion: nil)
     }
     
 }

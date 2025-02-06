@@ -10,20 +10,26 @@ import UIKit
 
 struct SetupMenu {
     
+    enum SettingsCellType {
+        case main, toggle, label
+    }
+    
     let name:  String
+    let description: String?
     let image: UIImage
     var color: UIColor = .gray
+    var type: SettingsCellType?
     
-   
-        
-    init(name: String, imageName: String, color: UIColor = .gray) {
+    init(name: String, description: String? = nil, imageName: String, color: UIColor = .gray, type: SettingsCellType? = .main) {
         self.name = name
         self.image = UIImage(systemName: imageName) ?? UIImage()
         self.color = color
-        
+        self.description = description
+        self.type = type
     }
     
 }
+
 enum Colors {
     
     case orange
@@ -45,10 +51,10 @@ enum Colors {
             return .systemRed
         case .purple:
             return .systemPurple
-            }
-    
-    }
+        }
         
+    }
+    
 }
 
 
@@ -74,10 +80,25 @@ struct ImageName {
 
 struct Source {
     static func makeMenu() -> [SetupMenu] {
-        [ SetupMenu(name: "Airplane Mode", imageName: ImageName.airplaneMod, color: Colors.orange.uiColor),
-          SetupMenu(name: "Wi-Fi", imageName: ImageName.wifi, color: Colors.blue.uiColor),
-          SetupMenu(name: "Bluetooth", imageName: ImageName.bluetooth, color: Colors.blue.uiColor),
-          SetupMenu(name: "Cellular", imageName: ImageName.cellular, color: Colors.green.uiColor),
+        [ SetupMenu(name: "Airplane Mode",
+                    imageName: ImageName.airplaneMod,
+                    color: Colors.orange.uiColor,
+                    type: .toggle),
+          SetupMenu(name: "Wi-Fi",
+                    description: "Guest",
+                    imageName: ImageName.wifi,
+                    color: Colors.blue.uiColor,
+                    type: .label),
+          SetupMenu(name: "Bluetooth",
+                    description: "On",
+                    imageName: ImageName.bluetooth,
+                    color: Colors.blue.uiColor,
+                    type: .label),
+          SetupMenu(name: "Cellular",
+                    description: "Off",
+                    imageName: ImageName.cellular,
+                    color: Colors.green.uiColor,
+                    type: .label),
           
           SetupMenu(name: "Notifications", imageName: ImageName.notifications, color: Colors.red.uiColor),
           SetupMenu(name: "Sounds & Haptics", imageName: ImageName.sound, color: Colors.red.uiColor),
@@ -91,18 +112,18 @@ struct Source {
           SetupMenu(name: "Accessibility", imageName: ImageName.accessibility, color: Colors.blue.uiColor)]
         
     }
-    static func makeGrup() -> [[SetupMenu]] {
-            let menus = makeMenu()
-            
-            var oneRow: [SetupMenu] = []
-            var twoRow: [SetupMenu] = []
-            var threeRow: [SetupMenu] = []
-
-            oneRow = Array(menus[0...3])
-            twoRow = Array(menus[4...7])
-            threeRow = Array(menus[8...12])
-
-            return [oneRow, twoRow, threeRow]
-        }
+    static func makeGroup() -> [[SetupMenu]] {
+        let menus = makeMenu()
+        
+        var oneRow: [SetupMenu] = []
+        var twoRow: [SetupMenu] = []
+        var threeRow: [SetupMenu] = []
+        
+        oneRow = Array(menus[0...3])
+        twoRow = Array(menus[4...7])
+        threeRow = Array(menus[8...12])
+        
+        return [oneRow, twoRow, threeRow]
     }
+}
 
