@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         buttonSettings.addTarget(self, action: #selector(settings), for: .touchUpInside)
 
         buttonLenta.setTitle("Lenta", for: .normal)
-        buttonProfil.setTitle("Profil", for: .normal)
+        buttonProfil.setTitle("Profile", for: .normal)
         buttonTikitok.setTitle("Tikitok", for: .normal)
 
         buttonLenta.backgroundColor = .red

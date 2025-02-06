@@ -58,7 +58,7 @@ extension ProductListController: UITableViewDelegate {
 
 extension ProductListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1000
+        100000
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

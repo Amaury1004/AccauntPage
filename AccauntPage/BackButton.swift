@@ -37,8 +37,8 @@ class BackButton: UIView {
         func setupConstraints() {
             NSLayoutConstraint.activate([
                 
-                backButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-                backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+                backButton.topAnchor.constraint(equalTo: topAnchor, constant: 2 ),
+                backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
                 backButton.widthAnchor.constraint(equalToConstant: 60),
                 backButton.heightAnchor.constraint(equalToConstant: 60)
                 ])
