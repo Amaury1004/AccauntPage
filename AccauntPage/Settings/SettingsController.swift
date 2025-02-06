@@ -108,7 +108,7 @@ extension SettingsController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let separatorView = UIView()
-        separatorView.backgroundColor = .white
+            separatorView.backgroundColor = .white
             
             let height: CGFloat = 10.0
             separatorView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: height)
@@ -117,9 +117,7 @@ extension SettingsController: UITableViewDataSource {
         }
         
        
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 30.0
-        }
+        
     @objc func switchChanged() {
         
     }
