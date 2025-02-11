@@ -12,7 +12,7 @@ protocol SettingsCellDelegate: AnyObject {
 }
 
 class SettingsCell: UITableViewCell {
-    
+    let iconContainer = UIView()
     let icon = UIImageView()
     let nameSettings =  UILabel()
     let cellSwitch = UISwitch()
@@ -32,22 +32,33 @@ class SettingsCell: UITableViewCell {
     }
     
     func setupCell() {
-        [nameSettings, icon].forEach {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview($0)
-    }
+        nameSettings.translatesAutoresizingMaskIntoConstraints = false
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        iconContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(nameSettings)
+        addSubview(iconContainer)
+        iconContainer.addSubview(icon)
+        
+    
         
         var constraints: [NSLayoutConstraint] = [
+        
             
-            icon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
-            icon.widthAnchor.constraint(equalToConstant: 30),
-            icon.heightAnchor.constraint(equalToConstant: 30),
-            icon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            iconContainer.widthAnchor.constraint(equalToConstant: 30),
+            iconContainer.heightAnchor.constraint(equalToConstant: 30),
+            iconContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            icon.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
+            icon.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
+            icon.widthAnchor.constraint(equalToConstant: 22),
+            icon.heightAnchor.constraint(equalToConstant: 24),
+            
             
             nameSettings.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             
-            nameSettings.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: 16),
+            nameSettings.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 16),
             nameSettings.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         if model?.type == .toggle {
@@ -81,11 +92,15 @@ class SettingsCell: UITableViewCell {
         descriptionLabel.text = menu.description
         descriptionLabel.textColor = .lightGray
         
+        iconContainer.backgroundColor = menu.color
+        iconContainer.layer.cornerRadius = 7
+        
         icon.image = menu.image
         icon.tintColor = .white
-        icon.layer.cornerRadius = 7
         icon.backgroundColor = menu.color
         icon.clipsToBounds = true
+        
+
         
         setupCell()
         setupSeparator()
@@ -102,7 +117,7 @@ class SettingsCell: UITableViewCell {
         UIView(frame:CGRect(x: 0, y: 0, width: width, height: 1))
         separator.backgroundColor = .lightGray
         separator.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(separator)
+        nameSettings.addSubview(separator)
         
         NSLayoutConstraint.activate([
             separator.leadingAnchor.constraint(equalTo: nameSettings.leadingAnchor),
