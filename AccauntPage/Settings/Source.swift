@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+enum SettingsSectionType: Int {
+    case fisrt, second, third
+}
+
 struct SetupMenu {
     
     enum SettingsCellType {

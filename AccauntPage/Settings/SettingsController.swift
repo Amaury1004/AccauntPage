@@ -11,7 +11,7 @@ import UIKit
 class SettingsController: UIViewController {
     
     let tableView: UITableView = .init(frame: .zero, style: .plain)
-    let menu = Source.makeMenu()
+    let content = Source.makeGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,20 @@ extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let item = content[indexPath.section][indexPath.row]
+        let section = SettingsSectionType.init(rawValue: indexPath.section)
+        
+        switch section {
+        case .fisrt:
+            print("fisrt")
+        case .second:
+            print("second")
+        case .third:
+            print("third")
+        case .none:
+            break;
+        }
+        
         if indexPath.section == 0 && indexPath.row == 1 {
             let wifiVC = WifiSettingsController()
             navigationController?.pushViewController(wifiVC, animated: true)
@@ -68,12 +82,11 @@ extension SettingsController {
 extension SettingsController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        Source.makeGroup().count
+        content.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let groupedMenu = Source.makeGroup()
-        return groupedMenu[section].count
+        return content[section].count
         
     }
     
@@ -86,8 +99,7 @@ extension SettingsController: UITableViewDataSource {
             fatalError("Cell not found")
         }
         
-        let groupedMenu = Source.makeGroup()
-        let menuItem = groupedMenu[indexPath.section][indexPath.row]
+        let menuItem = content[indexPath.section][indexPath.row]
         
         cell.configure(menu: menuItem)
         cell.delegate = self

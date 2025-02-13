@@ -17,7 +17,7 @@ class SwitchLightView: UIView {
     weak var delegate: SwitchLightDelegate?
     
     let lightSwitch = UISwitch()
-    let iconImageView = UIImageView()
+    let iconImageView = InsetImageView()
     let switchLabel = UILabel()
     
     
@@ -40,11 +40,10 @@ class SwitchLightView: UIView {
         
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        iconImageView.image = UIImage(systemName: "lightbulb.fill")!.withRenderingMode(.alwaysTemplate)
+        iconImageView.setup(image: UIImage(systemName: "lightbulb.fill")!.withRenderingMode(.alwaysTemplate), insets: UIEdgeInsets(top: 7, left: 5, bottom: 7, right: 5))
         iconImageView.tintColor = .white
          
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.layoutMargins = UIEdgeInsets(top: 7, left: 5, bottom: 7, right: 5)
         
         iconImageView.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         iconImageView.layer.cornerRadius = 7

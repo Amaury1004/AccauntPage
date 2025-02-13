@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A065F1C2D5E559100121097 /* InsetImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A065F1B2D5E558900121097 /* InsetImageView.swift */; };
 		0AD93AB32D4BD4E9003F047C /* ProductListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD93AB22D4BD4DE003F047C /* ProductListController.swift */; };
 		0AD93AB62D4BDC87003F047C /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD93AB52D4BDC87003F047C /* ProductCell.swift */; };
 		0AE239132D46A89300E85A08 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE239122D46A88900E85A08 /* NewsViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A065F1B2D5E558900121097 /* InsetImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetImageView.swift; sourceTree = "<group>"; };
 		0AD93AB22D4BD4DE003F047C /* ProductListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListController.swift; sourceTree = "<group>"; };
 		0AD93AB52D4BDC87003F047C /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		0AE239122D46A88900E85A08 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		118489FB2D420812001EC806 /* AccauntPage */ = {
 			isa = PBXGroup;
 			children = (
+				0A065F1B2D5E558900121097 /* InsetImageView.swift */,
 				11E3B8172D4FC49C00E6C81A /* Settings */,
 				0AD93AB42D4BDC65003F047C /* Product */,
 				118489FC2D420812001EC806 /* AppDelegate.swift */,
@@ -325,6 +328,7 @@
 				116425222D5DF789007B765C /* WifiNavigationController.swift in Sources */,
 				11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */,
 				0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */,
+				0A065F1C2D5E559100121097 /* InsetImageView.swift in Sources */,
 				0AD93AB62D4BDC87003F047C /* ProductCell.swift in Sources */,
 				117598AB2D53D9B20069E4BA /* SettingsCell.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
