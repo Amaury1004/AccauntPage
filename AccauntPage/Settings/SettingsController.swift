@@ -28,7 +28,7 @@ class SettingsController: UIViewController {
         
         setupConstraints()
         
-        self.navigationItem.title = "Ну не расстраивайся"
+        self.navigationItem.title = "Settings"
     }
     
     func setupTable() {
@@ -40,7 +40,14 @@ class SettingsController: UIViewController {
 extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Egor fashist")
+        
+        if indexPath.section == 0 && indexPath.row == 1 {
+            let wifiVC = WifiSettingsController()
+            navigationController?.pushViewController(wifiVC, animated: true)
+                }
+        else{
+            print("Egor fashist")
+        }
     }
     
 }

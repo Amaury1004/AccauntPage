@@ -195,10 +195,7 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    @objc func pushToSettings() {
-        let settings = SettingsController()
-        self.navigationController?.pushViewController(settings, animated: true)
-    }
+    
 }
 
 extension ProfileViewController: SwitchLightDelegate {
@@ -215,8 +212,7 @@ extension ProfileViewController: SwitchLightDelegate {
 
 extension ProfileViewController: BackButtonDelegate {
     func backToMenu() {
-        pushToSettings()
-        //dismiss(animated: true)
+        dismiss(animated: true)
     }
 }
 

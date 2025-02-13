@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 
         buttonLenta.addTarget(self, action: #selector(lenta), for: .touchUpInside)
         buttonProfil.addTarget(self, action: #selector(profile), for: .touchUpInside)
-        buttonTikitok.addTarget(self, action: #selector(tikitok), for: .touchUpInside)
+        buttonTikitok.addTarget(self, action: #selector(tikitok), for: .touchUpOutside)
 
         view.addSubview(heart)
         view.addSubview(buttonLenta)
@@ -99,13 +99,13 @@ class ViewController: UIViewController {
 
     @objc private func settings() {
         let settings = SettingsController()
-        self.present(settings, animated: true, completion: nil)
+        let nc = UINavigationController(rootViewController: settings)
+        self.present(nc, animated: true, completion: nil)
     }
 
     @objc private func profile() {
         let profile = ProfileViewController()
-        let nc = UINavigationController(rootViewController: profile)
-        self.present(nc, animated: true, completion: nil)
+        self.present(profile, animated: true, completion: nil)
     }
     
 }
