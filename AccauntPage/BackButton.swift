@@ -6,49 +6,42 @@ protocol BackButtonDelegate: AnyObject {
 
 class BackButton: UIView {
     
-    let backButton = UIButton()
-    
-    weak var delegate:  BackButtonDelegate?
+    private let backButton = UIButton()
+    weak var delegate: BackButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        
-        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setupUI()
     }
     
-    func setupUI() {
-        
+    private func setupUI() {
+        translatesAutoresizingMaskIntoConstraints = false // Важно!
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(UIImage(systemName: "arrow.backward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20)), for: .normal)
-
         backButton.layer.cornerRadius = 7
         backButton.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
         backButton.imageView?.contentMode = .scaleAspectFit
         
         addSubview(backButton)
         setupConstraints()
-            
-        func setupConstraints() {
-            NSLayoutConstraint.activate([
-                
-                backButton.topAnchor.constraint(equalTo: topAnchor, constant: 2 ),
-                backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-                backButton.widthAnchor.constraint(equalToConstant: 60),
-                backButton.heightAnchor.constraint(equalToConstant: 60)
-                ])
-            }
-            
-        
     }
-    @objc func popViewController() {
-        delegate?.backToMenu()
-        }
     
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 2),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    @objc private func popViewController() {
+        delegate?.backToMenu()
+    }
 }
-

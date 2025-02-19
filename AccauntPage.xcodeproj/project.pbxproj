@@ -14,6 +14,17 @@
 		0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE239142D46AAA100E85A08 /* SwitchLightView.swift */; };
 		11581E242D50E1970064225D /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11581E232D50E1970064225D /* Source.swift */; };
 		116425222D5DF789007B765C /* WifiNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116425212D5DF789007B765C /* WifiNavigationController.swift */; };
+		1166D7692D661ED1004771C8 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7682D661ED1004771C8 /* BluetoothController.swift */; };
+		1166D76B2D661F5E004771C8 /* CellularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76A2D661F5E004771C8 /* CellularController.swift */; };
+		1166D76D2D661FA4004771C8 /* NotificationsController\.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76C2D661FA4004771C8 /* NotificationsController\.swift */; };
+		1166D76F2D662010004771C8 /* Saund&HapticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76E2D662010004771C8 /* Saund&HapticsController.swift */; };
+		1166D7712D662083004771C8 /* FocusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7702D662083004771C8 /* FocusController.swift */; };
+		1166D7732D6620C3004771C8 /* ScreenTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7722D6620C3004771C8 /* ScreenTimeController.swift */; };
+		1166D7752D6620F6004771C8 /* GeneralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7742D6620F6004771C8 /* GeneralController.swift */; };
+		1166D7772D66212C004771C8 /* ControlCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7762D66212C004771C8 /* ControlCenterController.swift */; };
+		1166D7792D66216B004771C8 /* Display&BrightnessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7782D66216B004771C8 /* Display&BrightnessController.swift */; };
+		1166D77B2D6621B7004771C8 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D77A2D6621B7004771C8 /* HomeScreenController.swift */; };
+		1166D77D2D662215004771C8 /* AccessibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D77C2D662215004771C8 /* AccessibilityController.swift */; };
 		117598AB2D53D9B20069E4BA /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117598AA2D53D9B20069E4BA /* SettingsCell.swift */; };
 		118489FD2D420812001EC806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FC2D420812001EC806 /* AppDelegate.swift */; };
 		118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FE2D420812001EC806 /* SceneDelegate.swift */; };
@@ -55,6 +66,17 @@
 		0AE239142D46AAA100E85A08 /* SwitchLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLightView.swift; sourceTree = "<group>"; };
 		11581E232D50E1970064225D /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		116425212D5DF789007B765C /* WifiNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiNavigationController.swift; sourceTree = "<group>"; };
+		1166D7682D661ED1004771C8 /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
+		1166D76A2D661F5E004771C8 /* CellularController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularController.swift; sourceTree = "<group>"; };
+		1166D76C2D661FA4004771C8 /* NotificationsController\.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationsController\\.swift"; sourceTree = "<group>"; };
+		1166D76E2D662010004771C8 /* Saund&HapticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Saund&HapticsController.swift"; sourceTree = "<group>"; };
+		1166D7702D662083004771C8 /* FocusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusController.swift; sourceTree = "<group>"; };
+		1166D7722D6620C3004771C8 /* ScreenTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeController.swift; sourceTree = "<group>"; };
+		1166D7742D6620F6004771C8 /* GeneralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralController.swift; sourceTree = "<group>"; };
+		1166D7762D66212C004771C8 /* ControlCenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterController.swift; sourceTree = "<group>"; };
+		1166D7782D66216B004771C8 /* Display&BrightnessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Display&BrightnessController.swift"; sourceTree = "<group>"; };
+		1166D77A2D6621B7004771C8 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
+		1166D77C2D662215004771C8 /* AccessibilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityController.swift; sourceTree = "<group>"; };
 		117598AA2D53D9B20069E4BA /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		118489F92D420812001EC806 /* AccauntPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccauntPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118489FC2D420812001EC806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +135,17 @@
 			isa = PBXGroup;
 			children = (
 				116425212D5DF789007B765C /* WifiNavigationController.swift */,
+				1166D7682D661ED1004771C8 /* BluetoothController.swift */,
+				1166D76A2D661F5E004771C8 /* CellularController.swift */,
+				1166D76C2D661FA4004771C8 /* NotificationsController\.swift */,
+				1166D76E2D662010004771C8 /* Saund&HapticsController.swift */,
+				1166D7702D662083004771C8 /* FocusController.swift */,
+				1166D7722D6620C3004771C8 /* ScreenTimeController.swift */,
+				1166D7742D6620F6004771C8 /* GeneralController.swift */,
+				1166D7762D66212C004771C8 /* ControlCenterController.swift */,
+				1166D7782D66216B004771C8 /* Display&BrightnessController.swift */,
+				1166D77A2D6621B7004771C8 /* HomeScreenController.swift */,
+				1166D77C2D662215004771C8 /* AccessibilityController.swift */,
 			);
 			path = SettingsNavigation;
 			sourceTree = "<group>";
@@ -319,7 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
+				1166D76D2D661FA4004771C8 /* NotificationsController\.swift in Sources */,
+				1166D7772D66212C004771C8 /* ControlCenterController.swift in Sources */,
+				1166D7752D6620F6004771C8 /* GeneralController.swift in Sources */,
 				118489FD2D420812001EC806 /* AppDelegate.swift in Sources */,
+				1166D76F2D662010004771C8 /* Saund&HapticsController.swift in Sources */,
+				1166D77D2D662215004771C8 /* AccessibilityController.swift in Sources */,
+				1166D7712D662083004771C8 /* FocusController.swift in Sources */,
 				11581E242D50E1970064225D /* Source.swift in Sources */,
 				0AE239132D46A89300E85A08 /* NewsViewController.swift in Sources */,
 				0AD93AB32D4BD4E9003F047C /* ProductListController.swift in Sources */,
@@ -328,10 +367,15 @@
 				116425222D5DF789007B765C /* WifiNavigationController.swift in Sources */,
 				11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */,
 				0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */,
+				1166D76B2D661F5E004771C8 /* CellularController.swift in Sources */,
+				1166D7792D66216B004771C8 /* Display&BrightnessController.swift in Sources */,
 				0A065F1C2D5E559100121097 /* InsetImageView.swift in Sources */,
+				1166D7732D6620C3004771C8 /* ScreenTimeController.swift in Sources */,
 				0AD93AB62D4BDC87003F047C /* ProductCell.swift in Sources */,
 				117598AB2D53D9B20069E4BA /* SettingsCell.swift in Sources */,
+				1166D77B2D6621B7004771C8 /* HomeScreenController.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
+				1166D7692D661ED1004771C8 /* BluetoothController.swift in Sources */,
 				11FD0B332D4A4A2B002CBD30 /* Tiktok.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ class SettingsController: UIViewController {
     
     let tableView: UITableView = .init(frame: .zero, style: .plain)
     let content = Source.makeGroup()
+    let backButton = BackButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +20,19 @@ class SettingsController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        backButton.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.backgroundColor = .clear
+
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         
         setupTable()
         view.addSubview(tableView)
+        tableView.addSubview(backButton)
+        
+        tableView.bringSubviewToFront(backButton)
         
         setupConstraints()
         
@@ -41,26 +49,72 @@ extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let item = content[indexPath.section][indexPath.row]
+       
         let section = SettingsSectionType.init(rawValue: indexPath.section)
+        let firstRow = SettingsfirstRow.init(rawValue: indexPath.row)
+        let secondRow = SettingssecondRow.init(rawValue: indexPath.row)
+        let thirdRow = SettingsThirdRow.init(rawValue: indexPath.row)
         
         switch section {
         case .fisrt:
-            print("fisrt")
+            
+            switch  firstRow {
+            case .airmode:
+                print("Полетели нахуй")
+            case .wifi:
+                let VC = WifiSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .some(.bluetooth):
+                let VC = BluetoothSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .some(.cellular):
+                let VC = CellularSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .none:
+                print("error")
+            }
+            
         case .second:
-            print("second")
+            switch secondRow {
+            case .notifications:
+                let VC = NotificationsSettingsController() // Я не ебу почему у меня тут ошибка, но оно запускаеться
+                navigationController?.pushViewController(VC, animated: true)
+            case .sound:
+                let VC = SaundHapticsSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .focus:
+                let VC = FocusSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .screenTime:
+                let VC = ScreenTimeSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+
+            case .none:
+                print("error")
+            }
         case .third:
-            print("third")
+            switch thirdRow {
+            case .general:
+                let VC = GeneralSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .controlCenter:
+                let VC = ControlCenterSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .display:
+                let VC = DisplayBrightnessSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .homeScreen:
+                let VC = HomeScreenSettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+            case .accessibility:
+                let VC = AccessibilitySettingsController()
+                navigationController?.pushViewController(VC, animated: true)
+                
+            case .none:
+                print("error")
+            }
         case .none:
             break;
-        }
-        
-        if indexPath.section == 0 && indexPath.row == 1 {
-            let wifiVC = WifiSettingsController()
-            navigationController?.pushViewController(wifiVC, animated: true)
-                }
-        else{
-            print("Egor fashist")
         }
     }
     
@@ -74,7 +128,12 @@ extension SettingsController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }
@@ -115,7 +174,7 @@ extension SettingsController: UITableViewDataSource {
         let separatorView = UIView()
         separatorView.backgroundColor = .white
         
-        let height: CGFloat = 10.0
+        let height: CGFloat = 34.0
         separatorView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: height)
         
         return separatorView
@@ -132,10 +191,9 @@ extension SettingsController: SettingsCellDelegate {
     }
 }
 
-
-
-
-
-
-
-
+extension SettingsController: BackButtonDelegate {
+    func backToMenu() {
+        dismiss(animated: true)
+        
+    }
+}

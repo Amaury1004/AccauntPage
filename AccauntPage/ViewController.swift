@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 
         buttonLenta.addTarget(self, action: #selector(lenta), for: .touchUpInside)
         buttonProfil.addTarget(self, action: #selector(profile), for: .touchUpInside)
-        buttonTikitok.addTarget(self, action: #selector(tikitok), for: .touchUpOutside)
+        buttonTikitok.addTarget(self, action: #selector(tikitok), for: .touchUpInside)
 
         view.addSubview(heart)
         view.addSubview(buttonLenta)

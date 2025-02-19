@@ -11,6 +11,15 @@ import UIKit
 enum SettingsSectionType: Int {
     case fisrt, second, third
 }
+enum SettingsfirstRow: Int {
+    case airmode, wifi, bluetooth, cellular
+}
+enum SettingssecondRow: Int {
+    case notifications, sound, focus, screenTime
+}
+enum SettingsThirdRow: Int {
+   case general, controlCenter, display, homeScreen, accessibility
+}
 
 struct SetupMenu {
     
