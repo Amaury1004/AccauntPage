@@ -14,6 +14,7 @@ class SettingsController: UIViewController {
     let content = Source.makeGroup()
     let backButton = BackButton()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +25,15 @@ class SettingsController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.backgroundColor = .clear
+        
+        let closeButton = UIBarButtonItem(
+                image: UIImage(systemName: "xmark"), // Иконка крестика (можно "arrow.left" для стрелки)
+                style: .plain,
+                target: self,
+                action: #selector(closeButtonTapped)
+            )
+            navigationItem.leftBarButtonItem = closeButton
+        
 
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
@@ -37,6 +47,9 @@ class SettingsController: UIViewController {
         setupConstraints()
         
         self.navigationItem.title = "Settings"
+    }
+    @objc private func closeButtonTapped() {
+        dismiss(animated: true)
     }
     
     func setupTable() {

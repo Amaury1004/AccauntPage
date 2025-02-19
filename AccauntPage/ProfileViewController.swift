@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
         ))
         setupUI()
         
-        self.navigationItem.title = "Хуй Иваныч"
+        
 //        let closeButton = UIBarButtonItem(image: <#T##UIImage?#>, style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
 //        self.navigationItem.leftBarButtonItem = closeButton
         
