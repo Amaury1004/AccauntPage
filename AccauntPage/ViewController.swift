@@ -100,11 +100,13 @@ class ViewController: UIViewController {
     @objc private func settings() {
         let settings = SettingsController()
         let nc = UINavigationController(rootViewController: settings)
+        nc.modalPresentationStyle = .fullScreen
         self.present(nc, animated: true, completion: nil)
     }
 
     @objc private func profile() {
         let profile = ProfileViewController()
+        profile.modalPresentationStyle = .fullScreen
         self.present(profile, animated: true, completion: nil)
     }
     
