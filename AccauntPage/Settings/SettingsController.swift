@@ -27,7 +27,7 @@ class SettingsController: UIViewController {
         backButton.backgroundColor = .clear
         
         let closeButton = UIBarButtonItem(
-                image: UIImage(systemName: "xmark"), // Иконка крестика (можно "arrow.left" для стрелки)
+                image: UIImage(systemName: "xmark"), 
                 style: .plain,
                 target: self,
                 action: #selector(closeButtonTapped)
