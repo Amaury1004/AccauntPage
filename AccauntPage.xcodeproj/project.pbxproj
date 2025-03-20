@@ -13,6 +13,7 @@
 		0AE239132D46A89300E85A08 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE239122D46A88900E85A08 /* NewsViewController.swift */; };
 		0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE239142D46AAA100E85A08 /* SwitchLightView.swift */; };
 		11581E242D50E1970064225D /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11581E232D50E1970064225D /* Source.swift */; };
+		115B42E22D8C66040074FDA6 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B42E12D8C66040074FDA6 /* NotificationController.swift */; };
 		116425222D5DF789007B765C /* WifiNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116425212D5DF789007B765C /* WifiNavigationController.swift */; };
 		1166D7692D661ED1004771C8 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7682D661ED1004771C8 /* BluetoothController.swift */; };
 		1166D76B2D661F5E004771C8 /* CellularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76A2D661F5E004771C8 /* CellularController.swift */; };
@@ -68,6 +69,7 @@
 		0AE239122D46A88900E85A08 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		0AE239142D46AAA100E85A08 /* SwitchLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLightView.swift; sourceTree = "<group>"; };
 		11581E232D50E1970064225D /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		115B42E12D8C66040074FDA6 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		116425212D5DF789007B765C /* WifiNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiNavigationController.swift; sourceTree = "<group>"; };
 		1166D7682D661ED1004771C8 /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		1166D76A2D661F5E004771C8 /* CellularController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				1166D7682D661ED1004771C8 /* BluetoothController.swift */,
 				11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */,
 				11DF31442D89C35900DDEB29 /* SetupBlueTooth.swift */,
+				115B42E12D8C66040074FDA6 /* NotificationController.swift */,
 			);
 			path = BlueTooth;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115B42E22D8C66040074FDA6 /* NotificationController.swift in Sources */,
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
 				1166D7772D66212C004771C8 /* ControlCenterController.swift in Sources */,
 				1166D7752D6620F6004771C8 /* GeneralController.swift in Sources */,
