@@ -93,17 +93,20 @@ struct ImageName {
 
 struct Source {
     static func makeMenu() -> [SetupMenu] {
-        [ SetupMenu(name: "Airplane Mode",
+        let selectedWiFi = UserDefaults.standard.string(forKey: WiFiManager.selectedNetworkKey) ?? "Not Connected"
+        let selectedBlue = UserDefaults.standard.string(forKey: BlueToothManager.selectedNetworkKey) ?? "Not Connected"
+        
+        return [ SetupMenu(name: "Airplane Mode",
                     imageName: ImageName.airplaneMod,
                     color: Colors.orange.uiColor,
                     type: .toggle),
           SetupMenu(name: "Wi-Fi",
-                    description: "Guest",
+                    description: selectedWiFi,
                     imageName: ImageName.wifi,
                     color: Colors.blue.uiColor,
                     type: .label),
           SetupMenu(name: "Bluetooth",
-                    description: "On",
+                    description: selectedBlue,
                     imageName: ImageName.bluetooth,
                     color: Colors.blue.uiColor,
                     type: .label),
@@ -139,4 +142,5 @@ struct Source {
         return [oneRow, twoRow, threeRow]
     }
 }
+
 

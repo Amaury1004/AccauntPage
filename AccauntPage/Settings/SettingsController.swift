@@ -32,7 +32,7 @@ class SettingsController: UIViewController {
                 target: self,
                 action: #selector(closeButtonTapped)
             )
-            navigationItem.leftBarButtonItem = closeButton
+        navigationItem.leftBarButtonItem = closeButton
         
 
         

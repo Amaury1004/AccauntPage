@@ -200,14 +200,18 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: SwitchLightDelegate {
     func switchAction(sender: SwitchLightView) {
-        let darkMode = switchView.lightSwitch.isOn
-        view.backgroundColor = darkMode ? .black : .white
-        nameProfil.textColor = darkMode ? .white : .black
-        descriptionProfil.textColor = darkMode ? .white : .black
-        memeLable.textColor = darkMode ? .white : .black
-        switchView.switchLabel.textColor = darkMode ? .white : .black
-        switchView.iconImageView.tintColor = darkMode ? .black : .white
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "LightSwitch")
+        
+        view.backgroundColor = darkMode ?   .white : .black
+        nameProfil.textColor = darkMode ?   .black : .white
+        descriptionProfil.textColor = darkMode ?  .black :.white
+        memeLable.textColor = darkMode ?  .black : .white
+        switchView.switchLabel.textColor = darkMode ?   .black :.white
+        switchView.iconImageView.tintColor = darkMode ?  .white : .black
     }
+    
+    
 }
 
 extension ProfileViewController: BackButtonDelegate {

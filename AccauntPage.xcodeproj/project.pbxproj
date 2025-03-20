@@ -16,7 +16,6 @@
 		116425222D5DF789007B765C /* WifiNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116425212D5DF789007B765C /* WifiNavigationController.swift */; };
 		1166D7692D661ED1004771C8 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7682D661ED1004771C8 /* BluetoothController.swift */; };
 		1166D76B2D661F5E004771C8 /* CellularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76A2D661F5E004771C8 /* CellularController.swift */; };
-		1166D76D2D661FA4004771C8 /* NotificationsController\.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76C2D661FA4004771C8 /* NotificationsController\.swift */; };
 		1166D76F2D662010004771C8 /* Saund&HapticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D76E2D662010004771C8 /* Saund&HapticsController.swift */; };
 		1166D7712D662083004771C8 /* FocusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7702D662083004771C8 /* FocusController.swift */; };
 		1166D7732D6620C3004771C8 /* ScreenTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7722D6620C3004771C8 /* ScreenTimeController.swift */; };
@@ -37,6 +36,10 @@
 		11848A202D420814001EC806 /* AccauntPageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */; };
 		11848A2D2D42085A001EC806 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2C2D42085A001EC806 /* BackButton.swift */; };
 		11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2E2D4208A3001EC806 /* ProfileViewController.swift */; };
+		11DF313E2D89A59500DDEB29 /* WifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF313D2D89A59500DDEB29 /* WifiCell.swift */; };
+		11DF31402D89AD5600DDEB29 /* SetupWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF313F2D89AD5600DDEB29 /* SetupWifi.swift */; };
+		11DF31432D89C2E400DDEB29 /* BlueToothCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */; };
+		11DF31452D89C35900DDEB29 /* SetupBlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF31442D89C35900DDEB29 /* SetupBlueTooth.swift */; };
 		11E3B8192D4FC58B00E6C81A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E3B8182D4FC58B00E6C81A /* SettingsController.swift */; };
 		11FD0B332D4A4A2B002CBD30 /* Tiktok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD0B322D4A4A2B002CBD30 /* Tiktok.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +71,6 @@
 		116425212D5DF789007B765C /* WifiNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiNavigationController.swift; sourceTree = "<group>"; };
 		1166D7682D661ED1004771C8 /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		1166D76A2D661F5E004771C8 /* CellularController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularController.swift; sourceTree = "<group>"; };
-		1166D76C2D661FA4004771C8 /* NotificationsController\.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationsController\\.swift"; sourceTree = "<group>"; };
 		1166D76E2D662010004771C8 /* Saund&HapticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Saund&HapticsController.swift"; sourceTree = "<group>"; };
 		1166D7702D662083004771C8 /* FocusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusController.swift; sourceTree = "<group>"; };
 		1166D7722D6620C3004771C8 /* ScreenTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,10 @@
 		11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccauntPageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		11848A2C2D42085A001EC806 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		11848A2E2D4208A3001EC806 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		11DF313D2D89A59500DDEB29 /* WifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiCell.swift; sourceTree = "<group>"; };
+		11DF313F2D89AD5600DDEB29 /* SetupWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWifi.swift; sourceTree = "<group>"; };
+		11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothCell.swift; sourceTree = "<group>"; };
+		11DF31442D89C35900DDEB29 /* SetupBlueTooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBlueTooth.swift; sourceTree = "<group>"; };
 		11E3B8182D4FC58B00E6C81A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		11FD0B322D4A4A2B002CBD30 /* Tiktok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiktok.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,10 +140,9 @@
 		116425202D5DF73B007B765C /* SettingsNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				116425212D5DF789007B765C /* WifiNavigationController.swift */,
-				1166D7682D661ED1004771C8 /* BluetoothController.swift */,
+				11DF313C2D89A57F00DDEB29 /* wi-fi */,
+				11DF31412D89C24900DDEB29 /* BlueTooth */,
 				1166D76A2D661F5E004771C8 /* CellularController.swift */,
-				1166D76C2D661FA4004771C8 /* NotificationsController\.swift */,
 				1166D76E2D662010004771C8 /* Saund&HapticsController.swift */,
 				1166D7702D662083004771C8 /* FocusController.swift */,
 				1166D7722D6620C3004771C8 /* ScreenTimeController.swift */,
@@ -207,6 +212,26 @@
 				11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */,
 			);
 			path = AccauntPageUITests;
+			sourceTree = "<group>";
+		};
+		11DF313C2D89A57F00DDEB29 /* wi-fi */ = {
+			isa = PBXGroup;
+			children = (
+				116425212D5DF789007B765C /* WifiNavigationController.swift */,
+				11DF313D2D89A59500DDEB29 /* WifiCell.swift */,
+				11DF313F2D89AD5600DDEB29 /* SetupWifi.swift */,
+			);
+			path = "wi-fi";
+			sourceTree = "<group>";
+		};
+		11DF31412D89C24900DDEB29 /* BlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				1166D7682D661ED1004771C8 /* BluetoothController.swift */,
+				11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */,
+				11DF31442D89C35900DDEB29 /* SetupBlueTooth.swift */,
+			);
+			path = BlueTooth;
 			sourceTree = "<group>";
 		};
 		11E3B8172D4FC49C00E6C81A /* Settings */ = {
@@ -352,12 +377,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
-				1166D76D2D661FA4004771C8 /* NotificationsController\.swift in Sources */,
 				1166D7772D66212C004771C8 /* ControlCenterController.swift in Sources */,
 				1166D7752D6620F6004771C8 /* GeneralController.swift in Sources */,
 				118489FD2D420812001EC806 /* AppDelegate.swift in Sources */,
 				1166D76F2D662010004771C8 /* Saund&HapticsController.swift in Sources */,
 				1166D77D2D662215004771C8 /* AccessibilityController.swift in Sources */,
+				11DF31432D89C2E400DDEB29 /* BlueToothCell.swift in Sources */,
+				11DF313E2D89A59500DDEB29 /* WifiCell.swift in Sources */,
 				1166D7712D662083004771C8 /* FocusController.swift in Sources */,
 				11581E242D50E1970064225D /* Source.swift in Sources */,
 				0AE239132D46A89300E85A08 /* NewsViewController.swift in Sources */,
@@ -371,11 +397,13 @@
 				1166D7792D66216B004771C8 /* Display&BrightnessController.swift in Sources */,
 				0A065F1C2D5E559100121097 /* InsetImageView.swift in Sources */,
 				1166D7732D6620C3004771C8 /* ScreenTimeController.swift in Sources */,
+				11DF31452D89C35900DDEB29 /* SetupBlueTooth.swift in Sources */,
 				0AD93AB62D4BDC87003F047C /* ProductCell.swift in Sources */,
 				117598AB2D53D9B20069E4BA /* SettingsCell.swift in Sources */,
 				1166D77B2D6621B7004771C8 /* HomeScreenController.swift in Sources */,
 				118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */,
 				1166D7692D661ED1004771C8 /* BluetoothController.swift in Sources */,
+				11DF31402D89AD5600DDEB29 /* SetupWifi.swift in Sources */,
 				11FD0B332D4A4A2B002CBD30 /* Tiktok.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

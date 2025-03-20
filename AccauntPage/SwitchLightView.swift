@@ -34,6 +34,9 @@ class SwitchLightView: UIView {
     
     func setupUI() {
         
+        let isOn = UserDefaults.standard.bool(forKey: "LightSwitch")
+        lightSwitch.isOn = isOn
+        
         lightSwitch.translatesAutoresizingMaskIntoConstraints = false
         lightSwitch.addTarget(self, action: #selector(actionForSwitch), for: .valueChanged)
 
@@ -83,5 +86,6 @@ class SwitchLightView: UIView {
     
     @objc func actionForSwitch(sender: UISwitch) {
         delegate?.switchAction(sender: self)
+        UserDefaults.standard.set(sender.isOn, forKey: "LightSwitch")
     }
 }
