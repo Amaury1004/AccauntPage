@@ -37,6 +37,7 @@
 		11848A202D420814001EC806 /* AccauntPageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */; };
 		11848A2D2D42085A001EC806 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2C2D42085A001EC806 /* BackButton.swift */; };
 		11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848A2E2D4208A3001EC806 /* ProfileViewController.swift */; };
+		11DF166E2D9DCA3A00F4F257 /* SetUpCellular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF166D2D9DCA3A00F4F257 /* SetUpCellular.swift */; };
 		11DF313E2D89A59500DDEB29 /* WifiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF313D2D89A59500DDEB29 /* WifiCell.swift */; };
 		11DF31402D89AD5600DDEB29 /* SetupWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF313F2D89AD5600DDEB29 /* SetupWifi.swift */; };
 		11DF31432D89C2E400DDEB29 /* BlueToothCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */; };
@@ -97,6 +98,7 @@
 		11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccauntPageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		11848A2C2D42085A001EC806 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		11848A2E2D4208A3001EC806 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		11DF166D2D9DCA3A00F4F257 /* SetUpCellular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpCellular.swift; sourceTree = "<group>"; };
 		11DF313D2D89A59500DDEB29 /* WifiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiCell.swift; sourceTree = "<group>"; };
 		11DF313F2D89AD5600DDEB29 /* SetupWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWifi.swift; sourceTree = "<group>"; };
 		11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothCell.swift; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 			children = (
 				11DF313C2D89A57F00DDEB29 /* wi-fi */,
 				11DF31412D89C24900DDEB29 /* BlueTooth */,
-				1166D76A2D661F5E004771C8 /* CellularController.swift */,
+				11DF166C2D9DC7AB00F4F257 /* CellularController */,
 				1166D76E2D662010004771C8 /* Saund&HapticsController.swift */,
 				1166D7702D662083004771C8 /* FocusController.swift */,
 				1166D7722D6620C3004771C8 /* ScreenTimeController.swift */,
@@ -214,6 +216,15 @@
 				11848A1F2D420814001EC806 /* AccauntPageUITestsLaunchTests.swift */,
 			);
 			path = AccauntPageUITests;
+			sourceTree = "<group>";
+		};
+		11DF166C2D9DC7AB00F4F257 /* CellularController */ = {
+			isa = PBXGroup;
+			children = (
+				1166D76A2D661F5E004771C8 /* CellularController.swift */,
+				11DF166D2D9DCA3A00F4F257 /* SetUpCellular.swift */,
+			);
+			path = CellularController;
 			sourceTree = "<group>";
 		};
 		11DF313C2D89A57F00DDEB29 /* wi-fi */ = {
@@ -398,6 +409,7 @@
 				11848A2F2D4208A3001EC806 /* ProfileViewController.swift in Sources */,
 				0AE239152D46AAA600E85A08 /* SwitchLightView.swift in Sources */,
 				1166D76B2D661F5E004771C8 /* CellularController.swift in Sources */,
+				11DF166E2D9DCA3A00F4F257 /* SetUpCellular.swift in Sources */,
 				1166D7792D66216B004771C8 /* Display&BrightnessController.swift in Sources */,
 				0A065F1C2D5E559100121097 /* InsetImageView.swift in Sources */,
 				1166D7732D6620C3004771C8 /* ScreenTimeController.swift in Sources */,

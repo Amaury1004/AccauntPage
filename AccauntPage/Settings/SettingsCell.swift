@@ -58,6 +58,8 @@ class SettingsCell: UITableViewCell {
         ]
         if model?.type == .toggle {
             cellSwitch.translatesAutoresizingMaskIntoConstraints = false
+            let isOn = UserDefaults.standard.bool(forKey: "Airmode")
+            cellSwitch.isOn = isOn
             contentView.addSubview(cellSwitch)
             cellSwitch.addTarget(self, action: #selector(switchChangedAction(sender:)), for: .valueChanged)
             constraints.append(contentsOf: [
@@ -103,7 +105,9 @@ class SettingsCell: UITableViewCell {
     
     @objc func switchChangedAction(sender: UISwitch) {
         delegate?.didSwitchChangedAction(sender: self, isOn: sender.isOn)
+        UserDefaults.standard.set(sender.isOn, forKey: "Airmode")
     }
+    
     
     func setupSeparator() {
         //Google it: Custom separator with accesory view

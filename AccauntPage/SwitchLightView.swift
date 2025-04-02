@@ -19,7 +19,7 @@ class SwitchLightView: UIView {
     let lightSwitch = UISwitch()
     let iconImageView = InsetImageView()
     let switchLabel = UILabel()
-    let isDarkMode = UserDefaults.standard.bool(forKey: "LightSwitch")
+    let isDarkMode = UserDefaults.standard.bool(forKey: "LightSwitch")  
     
     
     override init(frame: CGRect) {
