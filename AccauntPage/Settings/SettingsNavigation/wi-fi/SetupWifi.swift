@@ -8,7 +8,7 @@ struct WiFiNetwork {
 
 struct WiFiManager {
     static let selectedNetworkKey = "SelectedWiFiNetwork"
-
+	
     static func saveSelectedNetwork(_ network: String) {
         UserDefaults.standard.set(network, forKey: selectedNetworkKey)
     }

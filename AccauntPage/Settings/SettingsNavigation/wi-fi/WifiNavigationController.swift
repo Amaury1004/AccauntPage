@@ -1,6 +1,12 @@
 import UIKit
 
+protocol WifiSettingsControllerDelegate: AnyObject {
+    func didSelectWiFiNetwork(_ networkName: String)
+}
+
 class WifiSettingsController: UIViewController {
+    
+    weak var delegate: WifiSettingsControllerDelegate?
     
     let wifiSwitch = UISwitch()
     let tableView = UITableView()
@@ -61,9 +67,11 @@ class WifiSettingsController: UIViewController {
 
 extension WifiSettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedNetworkName =  WiFiNetwork.getAvailableNetworks()[indexPath.row].name
-        selectedNetwork = selectedNetworkName
-    }
+                let selectedNetworkName = WiFiNetwork.getAvailableNetworks()[indexPath.row].name
+                delegate?.didSelectWiFiNetwork(selectedNetworkName)
+                selectedNetwork = selectedNetworkName
+                tableView.reloadData()  
+            }
     
 }
 

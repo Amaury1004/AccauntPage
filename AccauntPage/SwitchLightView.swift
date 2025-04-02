@@ -19,6 +19,7 @@ class SwitchLightView: UIView {
     let lightSwitch = UISwitch()
     let iconImageView = InsetImageView()
     let switchLabel = UILabel()
+    let isDarkMode = UserDefaults.standard.bool(forKey: "LightSwitch")
     
     
     override init(frame: CGRect) {
@@ -54,7 +55,7 @@ class SwitchLightView: UIView {
         
         switchLabel.translatesAutoresizingMaskIntoConstraints = false
         switchLabel.text = "Вимикач світла"
-        switchLabel.textColor  = .black
+        switchLabel.textColor  = isDarkMode ? .white : .black
         switchLabel.font = UIFont.systemFont(ofSize: 16)
         switchLabel.adjustsFontSizeToFitWidth = true
         
@@ -85,7 +86,6 @@ class SwitchLightView: UIView {
     }
     
     @objc func actionForSwitch(sender: UISwitch) {
-        delegate?.switchAction(sender: self)
-        UserDefaults.standard.set(sender.isOn, forKey: "LightSwitch")
-    }
+            delegate?.switchAction(sender: self)
+        }
 }

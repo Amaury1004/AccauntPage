@@ -1,9 +1,3 @@
-//
-//  SettingsViewController.swift
-//  AccauntPage
-//
-//  Created by MakOSim on 05.02.2025.
-//
 
 import UIKit
 
@@ -21,6 +15,7 @@ class SettingsCell: UITableViewCell {
     var model: SetupMenu?
     
     weak var delegate: SettingsCellDelegate?
+    weak var delegateWifi: WifiSettingsControllerDelegate?
 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

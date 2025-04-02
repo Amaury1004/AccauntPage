@@ -1,9 +1,4 @@
-//
-//  SettingsController.swift
-//  AccauntPage
-//
-//  Created by MakOSim on 02.02.2025.
-//
+
 
 import Foundation
 import UIKit
@@ -12,7 +7,6 @@ class SettingsController: UIViewController {
     
     let tableView: UITableView = .init(frame: .zero, style: .plain)
     let content = Source.makeGroup()
-    let backButton = BackButton()
     
     
     override func viewDidLoad() {
@@ -21,10 +15,7 @@ class SettingsController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        backButton.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.backgroundColor = .clear
         
         let closeButton = UIBarButtonItem(
                 image: UIImage(systemName: "xmark"), 
@@ -40,9 +31,7 @@ class SettingsController: UIViewController {
         
         setupTable()
         view.addSubview(tableView)
-        tableView.addSubview(backButton)
         
-        tableView.bringSubviewToFront(backButton)
         
         setupConstraints()
         
@@ -76,6 +65,7 @@ extension SettingsController: UITableViewDelegate {
                 print("Полетели нахуй")
             case .wifi:
                 let VC = WifiSettingsController()
+                VC.delegate = self
                 navigationController?.pushViewController(VC, animated: true)
             case .some(.bluetooth):
                 let VC = BluetoothSettingsController()
@@ -90,7 +80,7 @@ extension SettingsController: UITableViewDelegate {
         case .second:
             switch secondRow {
             case .notifications:
-                let VC = NotificationsSettingsController() // Я не ебу почему у меня тут ошибка, но оно запускаеться
+                let VC = NotificationsSettingsController()
                 navigationController?.pushViewController(VC, animated: true)
             case .sound:
                 let VC = SaundHapticsSettingsController()
@@ -141,12 +131,9 @@ extension SettingsController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor),
-            backButton.widthAnchor.constraint(equalToConstant: 60),
-            backButton.heightAnchor.constraint(equalToConstant: 60)
+       
         ])
     }
 }
@@ -204,9 +191,12 @@ extension SettingsController: SettingsCellDelegate {
     }
 }
 
-extension SettingsController: BackButtonDelegate {
-    func backToMenu() {
-        dismiss(animated: true)
+
+extension SettingsController: WifiSettingsControllerDelegate {
+    func didSelectWiFiNetwork(_ networkName: String) {
+        
+        tableView.reloadData()
         
     }
 }
+    

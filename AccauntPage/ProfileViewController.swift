@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     let switchView = SwitchLightView()
     let backButton = BackButton()
     
+    let isDarkMode = UserDefaults.standard.bool(forKey: "LightSwitch")
+    
     
     //Добавил скролл вью
     let scrollView = UIScrollView()
@@ -27,8 +29,12 @@ class ProfileViewController: UIViewController {
     var viewModel: ProfileModel?
     
     override func viewDidLoad() {
+        
+        switchView.lightSwitch.isOn = isDarkMode
+        updateTheme(isDarkMode: isDarkMode)
+        
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = isDarkMode ? .black : .white
         setupViewModel(ProfileModel(
             title: "Чіткий поц",
             description: "Я читаю реп, ви слухаєте реп, ви слухаєте реп.\n",
@@ -36,6 +42,7 @@ class ProfileViewController: UIViewController {
             imageDescription: "Відбірні меми Чоткого "
         ))
         setupUI()
+        
         
         
 //        let closeButton = UIBarButtonItem(image: <#T##UIImage?#>, style: .plain, target: <#T##Any?#>, action: <#T##Selector?#>)
@@ -67,7 +74,7 @@ class ProfileViewController: UIViewController {
         blackMen.translatesAutoresizingMaskIntoConstraints = false
         
         nameProfil.text = viewModel?.title
-        nameProfil.textColor = .black
+        nameProfil.textColor = isDarkMode ? .white : .black
         nameProfil.font = UIFont.boldSystemFont(ofSize: 24)
         nameProfil.translatesAutoresizingMaskIntoConstraints = false
         
@@ -81,9 +88,10 @@ class ProfileViewController: UIViewController {
         descriptionProfil.numberOfLines = 0
         descriptionProfil.textAlignment = .center
         descriptionProfil.translatesAutoresizingMaskIntoConstraints = false
+        descriptionProfil.textColor = isDarkMode ? .white : .black
         
         memeLable.text = viewModel?.imageDescription
-        memeLable.textColor = .black
+        memeLable.textColor = isDarkMode ? .white : .black
         memeLable.font = UIFont.boldSystemFont(ofSize: 20)
         memeLable.textAlignment = .center
         memeLable.translatesAutoresizingMaskIntoConstraints = false
@@ -194,24 +202,24 @@ class ProfileViewController: UIViewController {
 //            lightSwitch.topAnchor.constraint(equalTo: memesStack.bottomAnchor, constant: 42)
         ])
     }
+    func updateTheme(isDarkMode: Bool) {
+        view.backgroundColor = isDarkMode ? .black : .white
+        nameProfil.textColor = isDarkMode ? .white : .black
+        descriptionProfil.textColor = isDarkMode ? .white : .black
+        memeLable.textColor = isDarkMode ? .white : .black
+        switchView.switchLabel.textColor = isDarkMode ? .white : .black
+        switchView.iconImageView.tintColor = isDarkMode ? .white : .black
+    }
     
     
 }
 
 extension ProfileViewController: SwitchLightDelegate {
     func switchAction(sender: SwitchLightView) {
-        
-        let darkMode = UserDefaults.standard.bool(forKey: "LightSwitch")
-        
-        view.backgroundColor = darkMode ?   .white : .black
-        nameProfil.textColor = darkMode ?   .black : .white
-        descriptionProfil.textColor = darkMode ?  .black :.white
-        memeLable.textColor = darkMode ?  .black : .white
-        switchView.switchLabel.textColor = darkMode ?   .black :.white
-        switchView.iconImageView.tintColor = darkMode ?  .white : .black
+        let isDarkMode = sender.lightSwitch.isOn
+        UserDefaults.standard.set(isDarkMode, forKey: "LightSwitch")
+        updateTheme(isDarkMode: isDarkMode)
     }
-    
-    
 }
 
 extension ProfileViewController: BackButtonDelegate {
