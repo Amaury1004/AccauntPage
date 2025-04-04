@@ -39,7 +39,8 @@ class WifiSettingsController: UIViewController {
         label.text = "Wi-Fi"
         label.font = .boldSystemFont(ofSize: 18)
         
-        wifiSwitch.isOn = true
+        let isOn = true //UserDefaults.standard.bool(forKey: "Wifi")
+        wifiSwitch.isOn = isOn
         wifiSwitch.addTarget(self, action: #selector(toggleWiFi(_:)), for: .valueChanged)
 
         headerView.addSubview(label)
@@ -61,6 +62,7 @@ class WifiSettingsController: UIViewController {
 
     @objc func toggleWiFi(_ sender: UISwitch) {
         self.tableView.reloadData()
+        UserDefaults.standard.bool(forKey: "Wifi")
     }
 
 }
