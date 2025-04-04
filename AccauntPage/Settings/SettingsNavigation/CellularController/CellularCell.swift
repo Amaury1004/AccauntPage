@@ -25,12 +25,21 @@ class CellularCell: UITableViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         
         var constraints: [NSLayoutConstraint] = [
-
-            title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            
-            
+    
         ]
+        if model?.label == "Delete eSIM" {
+            title.textColor = .red
+            constraints = [
+                title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                title.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            ]
+        } else {
+            constraints = [
+                title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
+            ]
+        }
+
         
         if model?.type == .switchType {
             cellularSwitch.translatesAutoresizingMaskIntoConstraints = false
@@ -42,8 +51,8 @@ class CellularCell: UITableViewCell {
 
             constraints.append(contentsOf: [
                 cellularSwitch.heightAnchor.constraint(equalToConstant: 31),
-                cellularSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                cellularSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+                cellularSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                cellularSwitch.centerYAnchor.constraint(equalTo: title.centerYAnchor)
             ])
         }
         
@@ -53,14 +62,13 @@ class CellularCell: UITableViewCell {
             descriptionLabel.numberOfLines = 0 
 
             constraints.append(contentsOf: [
-                descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-                descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-              //descriptionLabel.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 1),
-                descriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+                descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                descriptionLabel.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2),
+                descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             ])
         }
-        
-        NSLayoutConstraint.activate(constraints)
+                NSLayoutConstraint.activate(constraints)
     }
     func configure(model: CellularSettingsData){
         self.model = model
@@ -68,6 +76,7 @@ class CellularCell: UITableViewCell {
         title.text = model.label
         descriptionLabel.text = model.descriptionLabel
         descriptionLabel.textColor = .lightGray
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 11)
         
         setupUi()
         

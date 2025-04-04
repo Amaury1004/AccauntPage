@@ -9,7 +9,7 @@ class CellularSettingsController: UIViewController, CellularSettingsDelegate {
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     
-    let grups = SetupCell.setupCellularGroup()
+    let content = SetupCell.setupCellularGroup()
     var model: CellularSettingsData?
     
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class CellularSettingsController: UIViewController, CellularSettingsDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellularCell.self, forCellReuseIdentifier: "CellularCell")
+        tableView.allowsSelection = false 
 
         
         view.addSubview(tableView)
@@ -46,7 +47,7 @@ class CellularSettingsController: UIViewController, CellularSettingsDelegate {
 
 extension CellularSettingsController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return grups.count
+        return content.count
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             switch section {
@@ -60,8 +61,8 @@ extension CellularSettingsController: UITableViewDataSource {
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard section < grups.count else { return 0 }
-        return grups[section].count
+        guard section < content.count else { return 0 }
+        return content[section].count
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50
@@ -69,8 +70,12 @@ extension CellularSettingsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellularCell", for: indexPath) as! CellularCell
-        let data = grups[indexPath.section][indexPath.row]
+        let data = content[indexPath.section][indexPath.row]
         cell.configure(model: data)
+        if data.type != .switchType {
+            cell.accessoryType = .disclosureIndicator
+        }
+        
         return cell
     }
     
@@ -81,10 +86,9 @@ extension CellularSettingsController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if model?.type == .label {
-            return 100
+        if indexPath.section == 0 && indexPath.row == 2 {
+            return 95
         }
-        else{
-            return 60}
-        }
+        return 44 
+}
 }

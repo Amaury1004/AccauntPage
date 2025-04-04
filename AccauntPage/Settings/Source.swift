@@ -95,7 +95,7 @@ struct Source {
     static func makeMenu() -> [SetupMenu] {
         let selectedWiFi = UserDefaults.standard.string(forKey: WiFiManager.selectedNetworkKey) ?? "Not Connected"
         let selectedBlue = UserDefaults.standard.string(forKey: BlueToothManager.selectedNetworkKey) ?? "Not Connected"
-        let selectCellular = UserDefaults.standard.bool(forKey: "CellularDataEnabled")
+        let selectCellular = UserDefaults.standard.bool(forKey: "Cellular")
         return [ SetupMenu(name: "Airplane Mode",
                     imageName: ImageName.airplaneMod,
                     color: Colors.orange.uiColor,
@@ -111,7 +111,7 @@ struct Source {
                     color: Colors.blue.uiColor,
                     type: .label),
           SetupMenu(name: "Cellular",
-                    description: selectCellular ? "Off" : "On",
+                    description: selectCellular ? "On" : "Off",
                     imageName: ImageName.cellular,
                     color: Colors.green.uiColor,
                     type: .label),
