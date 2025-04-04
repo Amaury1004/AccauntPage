@@ -17,7 +17,7 @@ class BlueToothCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupUI() {
+    func setupUI() {
         nameLabel.font = .systemFont(ofSize: 16)
         
         bluetoothIcon.contentMode = .scaleAspectFit

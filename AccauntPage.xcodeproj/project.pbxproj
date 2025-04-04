@@ -25,6 +25,7 @@
 		1166D7792D66216B004771C8 /* Display&BrightnessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D7782D66216B004771C8 /* Display&BrightnessController.swift */; };
 		1166D77B2D6621B7004771C8 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D77A2D6621B7004771C8 /* HomeScreenController.swift */; };
 		1166D77D2D662215004771C8 /* AccessibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166D77C2D662215004771C8 /* AccessibilityController.swift */; };
+		116C6B922D9EB75A00EDCEB8 /* CellularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C6B912D9EB75A00EDCEB8 /* CellularCell.swift */; };
 		117598AB2D53D9B20069E4BA /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117598AA2D53D9B20069E4BA /* SettingsCell.swift */; };
 		118489FD2D420812001EC806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FC2D420812001EC806 /* AppDelegate.swift */; };
 		118489FF2D420812001EC806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118489FE2D420812001EC806 /* SceneDelegate.swift */; };
@@ -82,6 +83,7 @@
 		1166D7782D66216B004771C8 /* Display&BrightnessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Display&BrightnessController.swift"; sourceTree = "<group>"; };
 		1166D77A2D6621B7004771C8 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		1166D77C2D662215004771C8 /* AccessibilityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityController.swift; sourceTree = "<group>"; };
+		116C6B912D9EB75A00EDCEB8 /* CellularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularCell.swift; sourceTree = "<group>"; };
 		117598AA2D53D9B20069E4BA /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		118489F92D420812001EC806 /* AccauntPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccauntPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118489FC2D420812001EC806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				11DF166C2D9DC7AB00F4F257 /* CellularController */,
 				1166D76E2D662010004771C8 /* Saund&HapticsController.swift */,
 				1166D7702D662083004771C8 /* FocusController.swift */,
+				115B42E12D8C66040074FDA6 /* NotificationController.swift */,
 				1166D7722D6620C3004771C8 /* ScreenTimeController.swift */,
 				1166D7742D6620F6004771C8 /* GeneralController.swift */,
 				1166D7762D66212C004771C8 /* ControlCenterController.swift */,
@@ -223,6 +226,7 @@
 			children = (
 				1166D76A2D661F5E004771C8 /* CellularController.swift */,
 				11DF166D2D9DCA3A00F4F257 /* SetUpCellular.swift */,
+				116C6B912D9EB75A00EDCEB8 /* CellularCell.swift */,
 			);
 			path = CellularController;
 			sourceTree = "<group>";
@@ -243,7 +247,6 @@
 				1166D7682D661ED1004771C8 /* BluetoothController.swift */,
 				11DF31422D89C2E400DDEB29 /* BlueToothCell.swift */,
 				11DF31442D89C35900DDEB29 /* SetupBlueTooth.swift */,
-				115B42E12D8C66040074FDA6 /* NotificationController.swift */,
 			);
 			path = BlueTooth;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				115B42E22D8C66040074FDA6 /* NotificationController.swift in Sources */,
+				116C6B922D9EB75A00EDCEB8 /* CellularCell.swift in Sources */,
 				11848A012D420812001EC806 /* ViewController.swift in Sources */,
 				1166D7772D66212C004771C8 /* ControlCenterController.swift in Sources */,
 				1166D7752D6620F6004771C8 /* GeneralController.swift in Sources */,

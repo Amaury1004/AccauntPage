@@ -8,7 +8,9 @@ protocol CellularSettingsDelegate: AnyObject {
 class CellularSettingsController: UIViewController, CellularSettingsDelegate {
     
     let tableView = UITableView(frame: .zero, style: .grouped)
-    var settingsData = CellularSettingsData()
+    
+    let grups = SetupCell.setupCellularGroup()
+    var model: CellularSettingsData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,8 @@ class CellularSettingsController: UIViewController, CellularSettingsDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CellularCell.self, forCellReuseIdentifier: "CellularCell")
+
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,59 +36,55 @@ class CellularSettingsController: UIViewController, CellularSettingsDelegate {
     
     @objc func cellularDataSwitchChanged(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "CellularDataEnabled")
-        settingsData.settings["Cellular Data"] = sender.isOn ? "On" : "Off"
         tableView.reloadData()
     }
     
     func didUpdateSetting(value: String, for key: String) {
-        settingsData.settings[key] = value
         tableView.reloadData()
     }
 }
 
 extension CellularSettingsController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settingsData.sections.count
+        return grups.count
     }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return settingsData.sections[section].isEmpty ? nil : settingsData.sections[section]
-    }
+            switch section {
+            case 0:
+                return "CELLULAR SETTINGS"
+            case 1:
+                return "ADDITIONAL OPTIONS"
+            default:
+                return nil
+            }
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsData.items[section].count
+        guard section < grups.count else { return 0 }
+        return grups[section].count
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let text = settingsData.items[indexPath.section][indexPath.row]
-        cell.textLabel?.text = text
-        
-        if text == "Cellular Data" {
-            let switchView = UISwitch()
-            switchView.isOn = UserDefaults.standard.bool(forKey: "CellularDataEnabled")
-            switchView.addTarget(self, action: #selector(cellularDataSwitchChanged(_:)), for: .valueChanged)
-            cell.accessoryView = switchView
-            cell.detailTextLabel?.text = switchView.isOn ? "On" : "Off"
-        } else if text == "Turn On This Line" {
-            let switchView = UISwitch()
-            switchView.isOn = true
-            cell.accessoryView = switchView
-        } else if text == "Delete eSIM" {
-            cell.textLabel?.textColor = .systemRed
-            cell.textLabel?.textAlignment = .center
-        } else {
-            cell.accessoryType = .disclosureIndicator
-            
-            if let value = settingsData.settings[text] {
-                cell.detailTextLabel?.text = value
-            }
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellularCell", for: indexPath) as! CellularCell
+        let data = grups[indexPath.section][indexPath.row]
+        cell.configure(model: data)
         return cell
     }
+    
 }
 
 extension CellularSettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if model?.type == .label {
+            return 100
+        }
+        else{
+            return 60}
+        }
 }
