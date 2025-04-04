@@ -1,12 +1,10 @@
-
-
-import Foundation
 import UIKit
 
 class SettingsController: UIViewController {
     
     let tableView: UITableView = .init(frame: .zero, style: .plain)
     let content = Source.makeGroup()
+    
     
     
     override func viewDidLoad() {
@@ -16,6 +14,7 @@ class SettingsController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        setupHeader()
         
         let closeButton = UIBarButtonItem(
                 image: UIImage(systemName: "xmark"), 
@@ -41,6 +40,45 @@ class SettingsController: UIViewController {
         dismiss(animated: true)
     }
     
+    func setupHeader() {
+        let headerView = UIView()
+        headerView.backgroundColor = .white
+        
+        let mainLabel = UILabel()
+        mainLabel.text = "True Tim Coc"
+        mainLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        mainLabel.textColor = .black
+        mainLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "avatar")
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 25
+        image.layer.masksToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        headerView.addSubview(image)
+        
+        
+        
+        headerView.addSubview(mainLabel)
+        
+        NSLayoutConstraint.activate([
+            mainLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 12),
+            mainLabel.centerYAnchor.constraint(equalTo: image.centerYAnchor),
+            
+            image.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 24),
+            image.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 10),
+            image.widthAnchor.constraint(equalToConstant: 50),
+            image.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60)
+        
+        tableView.tableHeaderView = headerView
+    }
+    
+    
     func setupTable() {
         tableView.separatorStyle = .none
     }
@@ -56,6 +94,7 @@ extension SettingsController: UITableViewDelegate {
         let firstRow = SettingsfirstRow.init(rawValue: indexPath.row)
         let secondRow = SettingssecondRow.init(rawValue: indexPath.row)
         let thirdRow = SettingsThirdRow.init(rawValue: indexPath.row)
+        
         
         switch section {
         case .fisrt:
