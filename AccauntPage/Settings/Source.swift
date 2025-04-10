@@ -28,7 +28,7 @@ struct SetupMenu {
     }
     
     let name:  String
-    let description: String?
+    var description: String?
     let image: UIImage
     var color: UIColor = .gray
     var type: SettingsCellType?

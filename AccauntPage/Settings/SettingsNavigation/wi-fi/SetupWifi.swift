@@ -1,10 +1,17 @@
 import UIKit
 
+
+enum TypeNetwork {
+    case WiFi, BlueTooth
+}
+
 struct WiFiNetwork {
     let name: String
     let isSecured: Bool
     let signalStrength: Int
 }
+
+
 
 struct WiFiManager {
     static let selectedNetworkKey = "SelectedWiFiNetwork"

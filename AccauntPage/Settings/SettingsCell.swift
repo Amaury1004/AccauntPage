@@ -63,7 +63,7 @@ class SettingsCell: UITableViewCell {
             contentView.addSubview(cellSwitch)
             cellSwitch.addTarget(self, action: #selector(switchChangedAction(sender:)), for: .valueChanged)
             constraints.append(contentsOf: [
-                cellSwitch.heightAnchor.constraint(equalToConstant: 31),
+                cellSwitch.heightAnchor.constraint	(equalToConstant: 31),
                 
                 cellSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -16),
                 cellSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)

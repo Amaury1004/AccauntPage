@@ -4,9 +4,12 @@ protocol WifiSettingsControllerDelegate: AnyObject {
     func didSelectWiFiNetwork(_ networkName: String)
 }
 
-class WifiSettingsController: UIViewController {
+class NetworkSettingsController: UIViewController {
     
     weak var delegate: WifiSettingsControllerDelegate?
+    
+    
+    let typeNetworkProperty: TypeNetwork
     
     let wifiSwitch = UISwitch()
     let tableView = UITableView()
@@ -16,7 +19,15 @@ class WifiSettingsController: UIViewController {
             tableView.reloadData()
         }
     }
-
+    init(typeNetworkProperty: TypeNetwork) {
+        self.typeNetworkProperty = typeNetworkProperty
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Wi-Fi"
@@ -62,22 +73,20 @@ class WifiSettingsController: UIViewController {
 
     @objc func toggleWiFi(_ sender: UISwitch) {
         self.tableView.reloadData()
-        UserDefaults.standard.bool(forKey: "Wifi")
     }
 
 }
 
-extension WifiSettingsController: UITableViewDelegate {
+extension NetworkSettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 let selectedNetworkName = WiFiNetwork.getAvailableNetworks()[indexPath.row].name
-                delegate?.didSelectWiFiNetwork(selectedNetworkName)
                 selectedNetwork = selectedNetworkName
-                tableView.reloadData()  
+                delegate?.didSelectWiFiNetwork(selectedNetworkName)
             }
     
 }
 
-extension WifiSettingsController: UITableViewDataSource {
+extension NetworkSettingsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WiFiCell.identifier, for: indexPath) as! WiFiCell

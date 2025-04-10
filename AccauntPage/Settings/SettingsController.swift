@@ -3,9 +3,8 @@ import UIKit
 class SettingsController: UIViewController {
     
     let tableView: UITableView = .init(frame: .zero, style: .plain)
-    let content = Source.makeGroup()
-    
-    
+    var content = Source.makeGroup()
+    var currentSelectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,12 +88,13 @@ extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-       
+        
         let section = SettingsSectionType.init(rawValue: indexPath.section)
         let firstRow = SettingsfirstRow.init(rawValue: indexPath.row)
         let secondRow = SettingssecondRow.init(rawValue: indexPath.row)
         let thirdRow = SettingsThirdRow.init(rawValue: indexPath.row)
         
+        currentSelectedIndexPath = indexPath
         
         switch section {
         case .fisrt:
@@ -103,15 +103,18 @@ extension SettingsController: UITableViewDelegate {
             case .airmode:
                 print("Полетели нахуй")
             case .wifi:
-                let VC = WifiSettingsController()
-                VC.delegate = self
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = NetworkSettingsController(typeNetworkProperty: .WiFi)
+                vc.delegate = self
+                
+                navigationController?.pushViewController(vc, animated: true)
             case .some(.bluetooth):
-                let VC = BluetoothSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = NetworkSettingsController(typeNetworkProperty: .BlueTooth)
+                vc.delegate = self
+                
+                navigationController?.pushViewController(vc, animated: true)
             case .some(.cellular):
-                let VC = CellularSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = CellularSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .none:
                 print("error")
             }
@@ -119,17 +122,17 @@ extension SettingsController: UITableViewDelegate {
         case .second:
             switch secondRow {
             case .notifications:
-                let VC = NotificationsSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = NotificationsSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .sound:
-                let VC = SaundHapticsSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = SaundHapticsSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .focus:
-                let VC = FocusSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = FocusSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .screenTime:
-                let VC = ScreenTimeSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = ScreenTimeSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
 
             case .none:
                 print("error")
@@ -137,17 +140,17 @@ extension SettingsController: UITableViewDelegate {
         case .third:
             switch thirdRow {
             case .general:
-                let VC = GeneralSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = GeneralSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .controlCenter:
-                let VC = ControlCenterSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = ControlCenterSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .display:
-                let VC = DisplayBrightnessSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = DisplayBrightnessSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .homeScreen:
-                let VC = HomeScreenSettingsController()
-                navigationController?.pushViewController(VC, animated: true)
+                let vc = HomeScreenSettingsController()
+                navigationController?.pushViewController(vc, animated: true)
             case .accessibility:
                 let VC = AccessibilitySettingsController()
                 navigationController?.pushViewController(VC, animated: true)
@@ -233,6 +236,8 @@ extension SettingsController: SettingsCellDelegate {
 
 extension SettingsController: WifiSettingsControllerDelegate {
     func didSelectWiFiNetwork(_ networkName: String) {
+        guard let currentSelectedIndexPath = self.currentSelectedIndexPath else { return }
+        content[currentSelectedIndexPath.section][currentSelectedIndexPath.row].description = networkName
         
         tableView.reloadData()
         
